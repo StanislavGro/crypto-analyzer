@@ -5,7 +5,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/java/pom.xml" />
+        <option value="$PROJECT_DIR$/java/portfolio-service/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/java/analyzer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/java/core/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager">
