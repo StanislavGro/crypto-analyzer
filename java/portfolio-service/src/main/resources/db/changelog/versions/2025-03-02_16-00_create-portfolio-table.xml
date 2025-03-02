@@ -8,10 +8,11 @@
 
     <changeSet id="2025-03-02 16-00" author="youngstanis">
 
-        <createTable catalogName="department"
-                     schemaName="public"
-                     tableName="portfolio-service-portfolio">
-            <column name="id" type="bigint"/>
+        <createTable schemaName="public"
+                     tableName="portfolio_service_portfolio">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
             <column name="portfolio_name" type="text"/>
         </createTable>
 

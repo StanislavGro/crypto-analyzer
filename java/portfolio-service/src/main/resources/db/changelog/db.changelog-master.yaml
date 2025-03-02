@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/versions/2025-03-02_16-00_create-portfolio-table.xml
+  - include:
+      file: db/changelog/versions/2025-03-03_00-20_create-cryptocurrency-table.xml
