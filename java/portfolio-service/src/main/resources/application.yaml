@@ -1,5 +1,8 @@
 server:
   port: 8010
+#  error:
+#    whitelabel:
+#      enabled: false
 
 spring:
   application:
@@ -14,3 +17,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+  main:
+    banner-mode: off
