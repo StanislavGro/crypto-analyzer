@@ -14,6 +14,7 @@
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="portfolio_name" type="text"/>
+            <column name="user_id" type="uuid"/>
         </createTable>
 
     </changeSet>

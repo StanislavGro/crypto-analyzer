@@ -20,6 +20,9 @@ public class Portfolio {
     @Column(name = "portfolio_name")
     private String portfolioName;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     @OneToMany(mappedBy = "portfolio")
     private List<Cryptocurrency> cryptocurrencies;
 }
