@@ -13,7 +13,7 @@
     <artifactId>portfolio-service</artifactId>
 
     <properties>
-        <image.path>registry.hub.docker.com/stanislavskii/${artifactId}</image.path>
+        <image.path> registry.hub.docker.com/stanislavskii/${artifactId}</image.path>
     </properties>
 
     <dependencies>
@@ -66,11 +66,6 @@
                     <to>
                         <image>${image.path}</image>
                     </to>
-                    <container>
-                        <ports>
-                            <port>8010</port>
-                        </ports>
-                    </container>
                 </configuration>
             </plugin>
         </plugins>
