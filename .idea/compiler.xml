@@ -17,6 +17,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="java" options="-parameters" />
       <module name="portfolio-service" options="-parameters" />
     </option>
   </component>
