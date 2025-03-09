@@ -24,6 +24,34 @@
                     type="uuid"/>
         </loadData>
 
+        <loadData file="/data/2025-03-04_18-insert-test-data-into-cryptocurrency.csv"
+                  quotchar="'"
+                  relativeToChangelogFile="true"
+                  separator=";"
+                  tableName="portfolio_service_cryptocurrency">
+            <column header="id"
+                    name="id"
+                    type="bigint"/>
+            <column header="full_name"
+                    name="full_name"
+                    type="text"/>
+            <column header="short_name"
+                    name="short_name"
+                    type="text"/>
+            <column header="amount"
+                    name="amount"
+                    type="double"/>
+            <column header="added_at_utc"
+                    name="added_at_utc"
+                    type="bigint"/>
+            <column header="buy_price_dollar"
+                    name="buy_price_dollar"
+                    type="double"/>
+            <column header="portfolio_id"
+                    name="portfolio_id"
+                    type="bigint"/>
+        </loadData>
+
     </changeSet>
 
 </databaseChangeLog>

@@ -16,17 +16,20 @@ public class Cryptocurrency {
     @Id
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "full_name")
+    private String full_name;
+
+    @Column(name = "short_name")
+    private String short_name;
 
     @Column(name = "amount")
-    private Long amount;
+    private Double amount;
 
-    @Column(name = "added_at")
-    private Long addedAt;
+    @Column(name = "added_at_utc")
+    private Long addedAtUtc;
 
     @Column(name = "buy_price_dollar")
-    private Long buyPriceDollar;
+    private Double buyPriceDollar;
 
     @ManyToOne
     @JoinColumn(name = "portfolio_id", nullable = false)
