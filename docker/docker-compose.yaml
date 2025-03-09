@@ -21,7 +21,7 @@ services:
   postgres-db:
     container_name: postgres
     image: postgres:14
-#    restart: always
+    restart: always
     shm_size: 128mb
     environment:
       POSTGRES_DB: "${POSTGRES_DB}"
