@@ -1,7 +1,11 @@
 package ru.youngstanis.services;
 
 import org.springframework.stereotype.Service;
+import ru.youngstanis.models.Cryptocurrency;
 import ru.youngstanis.repository.CryptocurrencyRepository;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  * TODO
@@ -17,4 +21,7 @@ public class CryptocurrencyService {
         this.cryptocurrencyRepository = cryptocurrencyRepository;
     }
 
+    public List<Cryptocurrency> getAllUserCryptocurrency(UUID userId) {
+        return cryptocurrencyRepository.getAllByUserId(userId);
+    }
 }

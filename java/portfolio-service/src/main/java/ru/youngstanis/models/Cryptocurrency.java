@@ -1,5 +1,6 @@
 package ru.youngstanis.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.youngstanis.constants.TableNames;
@@ -33,6 +34,7 @@ public class Cryptocurrency {
 
     @ManyToOne
     @JoinColumn(name = "portfolio_id", nullable = false)
+    @JsonManagedReference
     private Portfolio portfolio;
 }
 

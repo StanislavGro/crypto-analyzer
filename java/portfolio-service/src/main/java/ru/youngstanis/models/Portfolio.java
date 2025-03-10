@@ -1,10 +1,12 @@
 package ru.youngstanis.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.youngstanis.constants.TableNames;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Setter
@@ -21,8 +23,9 @@ public class Portfolio {
     private String portfolioName;
 
     @Column(name = "user_id")
-    private Long userId;
+    private UUID userId;
 
     @OneToMany(mappedBy = "portfolio")
+    @JsonBackReference
     private List<Cryptocurrency> cryptocurrencies;
 }

@@ -8,6 +8,7 @@ import ru.youngstanis.services.CryptocurrencyService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/cryptocurrency")
@@ -19,10 +20,10 @@ public class CryptocurrencyController {
         this.cryptocurrencyService = cryptocurrencyService;
     }
 
-    @GetMapping("/getAllCryptocurrency")
-    public ResponseEntity<List<Cryptocurrency>> getAllCryptocurrency() {
-        //TODO
-        return ResponseEntity.ok(new ArrayList<>());
+    @GetMapping("/getAllUserCryptocurrency/{userId}")
+    public ResponseEntity<List<Cryptocurrency>> getAllCryptocurrency(@PathVariable UUID userId) {
+        List<Cryptocurrency> cryptocurrencies = cryptocurrencyService.getAllUserCryptocurrency(userId);
+        return ResponseEntity.ok(cryptocurrencies);
     }
 
     @PostMapping("/addCryptocurrency")
