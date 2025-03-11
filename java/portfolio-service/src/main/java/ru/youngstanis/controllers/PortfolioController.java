@@ -3,6 +3,7 @@ package ru.youngstanis.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.youngstanis.dto.PortfolioDto;
 import ru.youngstanis.models.Portfolio;
 import ru.youngstanis.services.PortfolioService;
 
@@ -18,14 +19,14 @@ public class PortfolioController {
         this.portfolioService = portfolioService;
     }
 
+    @PostMapping("/createPortfolio")
+    public ResponseEntity<HttpStatus> createPortfolio(@RequestBody PortfolioDto portfolioDto) {
+        portfolioService.createPortfolio(portfolioDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
     @GetMapping("/getAllPortfolios")
     public ResponseEntity<List<Portfolio>> getAllPortfolios() {
         return ResponseEntity.ok(portfolioService.getAllPortfolios());
-    }
-
-    @PostMapping("/addPortfolio")
-    public ResponseEntity<HttpStatus> addPortfolio(@RequestBody Portfolio portfolio) {
-        //TODO
-        return ResponseEntity.ok(HttpStatus.CREATED);
     }
 }

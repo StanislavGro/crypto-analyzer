@@ -9,7 +9,7 @@
     <changeSet id="2025-03-03 00-20" author="youngstanis">
 
         <createTable schemaName="public"
-                     tableName="portfolio_service_cryptocurrency">
+                     tableName="portfolio_service_cryptocurrencies">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -23,8 +23,8 @@
             </column>
         </createTable>
         
-        <addForeignKeyConstraint baseTableName="portfolio_service_cryptocurrency" baseColumnNames="portfolio_id"
-                                 constraintName="portfolio_service_cryptocurrency_portfolio_id_fk"
+        <addForeignKeyConstraint baseTableName="portfolio_service_cryptocurrencies" baseColumnNames="portfolio_id"
+                                 constraintName="portfolio_service_cryptocurrencies_portfolio_id_fk"
                                  referencedTableName="portfolio_service_portfolio"
                                  referencedColumnNames="id"/>
         

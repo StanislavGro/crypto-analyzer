@@ -3,7 +3,8 @@ package ru.youngstanis.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
-import ru.youngstanis.constants.TableNames;
+
+import static ru.youngstanis.constants.TableNames.CRYPTOCURRENCIES;
 
 @Entity
 @Getter
@@ -11,7 +12,7 @@ import ru.youngstanis.constants.TableNames;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Table(name = TableNames.CRYPTOCURRENCY)
+@Table(name = CRYPTOCURRENCIES)
 public class Cryptocurrency {
 
     @Id

@@ -3,10 +3,12 @@ package ru.youngstanis.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import ru.youngstanis.constants.TableNames;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
 import java.util.UUID;
+
+import static ru.youngstanis.constants.TableNames.*;
 
 @Entity
 @Setter
@@ -14,9 +16,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Table(name = TableNames.PORTFOLIO)
+@Table(name = PORTFOLIO)
 public class Portfolio {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "portfolio_name")

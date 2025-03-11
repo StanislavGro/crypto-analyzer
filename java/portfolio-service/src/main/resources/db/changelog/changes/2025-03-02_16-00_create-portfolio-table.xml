@@ -17,6 +17,17 @@
             <column name="user_id" type="uuid"/>
         </createTable>
 
+        <addUniqueConstraint tableName="portfolio_service_portfolio"
+                             columnNames="portfolio_name, user_id"
+                             constraintName="portfolio_service_portfolio_portfolio_name_user_id_unique_constraint"/>
+        
+        <createSequence sequenceName="portfolio_service_portfolio_id_seq"
+                        incrementBy="1"
+                        ordered="true"
+                        startValue="10"
+                        dataType="int"
+        />
+
     </changeSet>
 
 </databaseChangeLog>

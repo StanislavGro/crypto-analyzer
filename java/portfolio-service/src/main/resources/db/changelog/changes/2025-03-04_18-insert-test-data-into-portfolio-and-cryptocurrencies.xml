@@ -8,7 +8,7 @@
 
     <changeSet id="2025-03-04 18-00" author="youngstanis">
 
-        <loadData file="/data/2025-03-04_18-insert-test-data-into-portfolio.csv"
+        <loadData file="data/2025-03-04_18-insert-test-data-into-portfolio.csv"
                   quotchar="'"
                   relativeToChangelogFile="true"
                   separator=";"
@@ -24,11 +24,11 @@
                     type="uuid"/>
         </loadData>
 
-        <loadData file="/data/2025-03-04_18-insert-test-data-into-cryptocurrency.csv"
+        <loadData file="data/2025-03-04_18-insert-test-data-into-cryptocurrencies.csv"
                   quotchar="'"
                   relativeToChangelogFile="true"
                   separator=";"
-                  tableName="portfolio_service_cryptocurrency">
+                  tableName="portfolio_service_cryptocurrencies">
             <column header="id"
                     name="id"
                     type="bigint"/>

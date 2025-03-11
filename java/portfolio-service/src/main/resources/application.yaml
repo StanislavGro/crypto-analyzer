@@ -14,8 +14,8 @@ spring:
     password: crypto
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
-    database-change-log-table: ${spring.application.name}_databasechangelog
-    database-change-log-lock-table: ${spring.application.name}_databasechangeloglock
+    database-change-log-table: portfolio_service_databasechangelog
+    database-change-log-lock-table: portfolio_service_databasechangeloglock
   jpa:
     hibernate:
       ddl-auto: none

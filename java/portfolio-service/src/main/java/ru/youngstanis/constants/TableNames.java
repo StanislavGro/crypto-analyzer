@@ -3,6 +3,6 @@ package ru.youngstanis.constants;
 public class TableNames {
 
     public final static String PORTFOLIO = "portfolio_service_portfolio";
-    public final static String CRYPTOCURRENCY = "portfolio_service_cryptocurrency";
-    public final static String CURRENCY = "portfolio_service_currency";
+    public final static String CRYPTOCURRENCIES = "portfolio_service_cryptocurrencies";
+    public final static String TOKENS = "portfolio_service_tokes";
 }
