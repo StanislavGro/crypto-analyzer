@@ -19,8 +19,6 @@ services:
       - "SPRING_JPA_HIBERNATE_DDL_AUTO=none"
     ports:
       - "${PORTFOLIO_SERVICE_EXTERNAL_PORT}:${PORTFOLIO_SERVICE_INTERNAL_PORT}"
-    volumes:
-      - ./java/portfolio-service/target:/build_target
 
   postgres-db:
     container_name: postgres

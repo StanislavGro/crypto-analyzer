@@ -23,7 +23,6 @@
         
         <createSequence sequenceName="portfolio_service_portfolio_id_seq"
                         incrementBy="1"
-                        ordered="true"
                         startValue="10"
                         dataType="int"
         />

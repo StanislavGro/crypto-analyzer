@@ -115,8 +115,8 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
-          cd /home/app
-          cp -r java/ docker/
+          cd /home/app/java/portfolio-service/target
+          cp *.jar docker/dockerfiles
           EOF
 
       - name: Запуск контейнера с Docker Compose
