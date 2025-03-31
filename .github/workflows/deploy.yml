@@ -115,7 +115,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
-          cd /home/app
+          cd /home/app/docker
           docker-compose down || true
           docker-compose up --build -d
           EOF
