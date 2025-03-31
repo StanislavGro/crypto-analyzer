@@ -59,7 +59,7 @@ jobs:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key
+          echo "$SSH_PRIVATE_KEY" > private_key << EOF
           chmod 600 private_key
           
           # Отключаем проверку ключа хоста
