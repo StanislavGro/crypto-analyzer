@@ -26,13 +26,13 @@ jobs:
         run: mvn -f java/pom.xml clean install -DskipTests -B
 
       - name: Debug built files
-        run: ls -lah java/target || ls -R
+        run: ls -lah java/portfolio-service/target
 
       - name: Upload Maven artifact
         uses: actions/upload-artifact@v4
         with:
           name: crypto-analyzer
-          path: java/target/*.jar
+          path: java/portfolio-service/target/*.jar
           compression-level: '0'
 
   deploy:
