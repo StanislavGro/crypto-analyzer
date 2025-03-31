@@ -65,10 +65,11 @@ jobs:
           # Отключаем проверку ключа хоста
           ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP "echo 'SSH Connected!'"
           
+          sudo apt update || { echo "Ошибка обновления apt"; exit 1; }
+          
           # Установка Docker, если его нет
           if ! command -v docker &> /dev/null; then
             echo "Docker не найден, устанавливаем..."
-            sudo apt update || { echo "Ошибка обновления apt"; exit 1; }
             sudo apt install -y docker.io || { echo "Ошибка установки Docker"; exit 1; }
             sudo systemctl enable docker || { echo "Ошибка включения Docker"; exit 1; }
             sudo systemctl start docker || { echo "Ошибка запуска Docker"; exit 1; }
@@ -88,10 +89,6 @@ jobs:
       - name: Debug downloaded artifact
         run: ls -R
 
-      - name: Creating final directory
-        run: |
-          sudo mkdir -p /home/app
-
       - name: Debug server details
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}
@@ -105,7 +102,7 @@ jobs:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
-          scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home/app
+          scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home
 
       - name: Запуск контейнера с Docker Compose
         env:
@@ -113,7 +110,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
-          cd /home/app
+          cd /home
           docker-compose down || true
           docker-compose up --build -d
           EOF
