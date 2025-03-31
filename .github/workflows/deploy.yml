@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: crypto-analyzer
-          path: target/*.jar
+          path: app/*.jar
           compression-level: '0'
 
   deploy:
