@@ -37,6 +37,9 @@ jobs:
     needs: build
 
     steps:
+      - name: Debug downloaded artifact
+        run: ls -lah ./app
+
       - name: Artifact downloading
         uses: actions/download-artifact@v4
         with:
