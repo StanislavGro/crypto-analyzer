@@ -22,11 +22,8 @@ jobs:
           java-version: '21'
           distribution: temurin
 
-      - name: Debug repository structure
-        run: ls -R
-
       - name: Packaging with Maven
-        run: mvn clean install -DskipTests -B
+        run: mvn -f java/pom.xml clean install -DskipTests -B
 
   deploy:
     runs-on: ubuntu-latest
