@@ -85,14 +85,20 @@ jobs:
             echo "Docker Compose уже установлен."
           fi
 
+      - name: Debug downloaded artifact
+        run: ls -R && exit 1
+
+      - name: Creating final directory
+        run: mkdir -p /home/app
+
       - name: Копирование файлов на сервер
         run: |
-          scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home/$SERVER_USER/app
+          scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home/app
 
       - name: Запуск контейнера с Docker Compose
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
-          cd /home/$SERVER_USER/app
+          cd /home/app
           docker-compose down || true
           docker-compose up --build -d
           EOF
