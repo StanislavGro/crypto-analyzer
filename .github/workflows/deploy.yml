@@ -109,6 +109,16 @@ jobs:
         run: |
           scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home
 
+      - name: Перемещение по папкам
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+        run: |
+          ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
+          cd /home/app
+          cp -r java/ docker/
+          EOF
+
       - name: Запуск контейнера с Docker Compose
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}
