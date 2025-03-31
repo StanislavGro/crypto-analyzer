@@ -93,15 +93,24 @@ jobs:
           sudo mkdir -p /home/app
 
       - name: Debug server details
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           echo "Server user: $SERVER_USER"
           echo "Server IP: $SERVER_IP"
 
       - name: Копирование файлов на сервер
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           scp -i private_key -r . $SERVER_USER@$SERVER_IP:/home/app
 
       - name: Запуск контейнера с Docker Compose
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
           cd /home/app
