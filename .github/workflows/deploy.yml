@@ -89,7 +89,7 @@ jobs:
         run: ls -R
 
       - name: Creating final directory
-        run: mkdir -p /home/app
+        run: sudo mkdir -p /home/app
 
       - name: Копирование файлов на сервер
         run: |
