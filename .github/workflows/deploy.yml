@@ -14,13 +14,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Installing JDK-21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: temurin
+
+      - name: Debug repository structure
+        run: ls -R
 
       - name: Packaging with Maven
         run: mvn clean install -DskipTests -B
