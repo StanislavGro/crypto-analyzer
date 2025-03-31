@@ -25,6 +25,9 @@ jobs:
       - name: Packaging with Maven
         run: mvn -f java/pom.xml clean install -DskipTests -B
 
+      - name: Debug built files
+        run: ls -lah java/target
+
       - name: Upload Maven artifact
         uses: actions/upload-artifact@v4
         with:
