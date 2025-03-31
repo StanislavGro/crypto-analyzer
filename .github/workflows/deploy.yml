@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: crypto-analyzer
-          path: app/*.jar
+          path: java/target/*.jar
           compression-level: '0'
 
   deploy:
@@ -37,14 +37,18 @@ jobs:
     needs: build
 
     steps:
-      - name: Debug downloaded artifact
-        run: ls -lah ./app
+
+      - name: Ensure artifact directory exists
+        run: mkdir -p ./app
 
       - name: Artifact downloading
         uses: actions/download-artifact@v4
         with:
           name: crypto-analyzer
           path: ./app
+
+      - name: Debug downloaded artifact
+        run: ls -lah ./app
 
       - name: Server link and env setting up
         env:
