@@ -25,8 +25,8 @@ jobs:
       - name: Packaging with Maven
         run: mvn -f java/pom.xml clean install -DskipTests -B
 
-      - name: Debug built files
-        run: ls -lah java/portfolio-service/target
+#      - name: Debug built files
+#        run: ls -lah java/portfolio-service/target
 
       - name: Upload Maven artifact
         uses: actions/upload-artifact@v4
@@ -50,8 +50,8 @@ jobs:
           name: crypto-analyzer
           path: ./app
 
-      - name: Debug downloaded artifact
-        run: ls -lah ./app
+#      - name: Debug downloaded artifact
+#        run: ls -lah ./app
 
       - name: Server link and env setting up
         env:
@@ -84,7 +84,6 @@ jobs:
           else
             echo "Docker Compose уже установлен."
           fi
-          EOF
 
       - name: Копирование файлов на сервер
         run: |
