@@ -59,8 +59,12 @@ jobs:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
+          echo "$SSH_PRIVATE_KEY" > private_key
+          chmod 600 private_key
+          
+          # Отключаем проверку ключа хоста
+          ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP "echo 'SSH Connected!'"
+          
           # Установка Docker, если его нет
           if ! command -v docker &> /dev/null; then
             echo "Docker не найден, устанавливаем..."
