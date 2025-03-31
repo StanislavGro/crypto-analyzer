@@ -32,7 +32,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: crypto-analyzer
-          path: java/portfolio-service/target/*.jar
+          path: |
+            java/portfolio-service/target/*.jar
+            docker
           compression-level: '0'
 
   deploy:
@@ -113,7 +115,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -i private_key $SERVER_USER@$SERVER_IP << EOF
-          cd /home
+          cd /home/app
           docker-compose down || true
           docker-compose up --build -d
           EOF
