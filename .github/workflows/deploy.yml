@@ -89,7 +89,13 @@ jobs:
         run: ls -R
 
       - name: Creating final directory
-        run: sudo mkdir -p /home/app
+        run: |
+          sudo mkdir -p /home/app
+
+      - name: Debug server details
+        run: |
+          echo "Server user: $SERVER_USER"
+          echo "Server IP: $SERVER_IP"
 
       - name: Копирование файлов на сервер
         run: |
