@@ -19,13 +19,13 @@ public class CryptocurrencyController {
         this.cryptocurrencyService = cryptocurrencyService;
     }
 
-    @GetMapping("/getAllUserCryptocurrency/{userId}")
+    @GetMapping("/get-user-coins/{userId}")
     public ResponseEntity<List<Cryptocurrency>> getAllCryptocurrency(@PathVariable UUID userId) {
         List<Cryptocurrency> cryptocurrencies = cryptocurrencyService.getAllUserCryptocurrency(userId);
         return ResponseEntity.ok(cryptocurrencies);
     }
 
-    @PostMapping("/addCryptocurrency")
+    @PostMapping("/add-сryptocurrency")
     public ResponseEntity<HttpStatus> addCryptocurrency(@RequestBody Cryptocurrency cryptocurrency) {
         //TODO
         return ResponseEntity.ok(HttpStatus.CREATED);

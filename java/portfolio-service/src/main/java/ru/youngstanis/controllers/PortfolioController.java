@@ -19,13 +19,13 @@ public class PortfolioController {
         this.portfolioService = portfolioService;
     }
 
-    @PostMapping("/createPortfolio")
+    @PostMapping("/create-portfolio")
     public ResponseEntity<HttpStatus> createPortfolio(@RequestBody PortfolioDto portfolioDto) {
         portfolioService.createPortfolio(portfolioDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAllPortfolios")
+    @GetMapping("/get-all-portfolios")
     public ResponseEntity<List<Portfolio>> getAllPortfolios() {
         return ResponseEntity.ok(portfolioService.getAllPortfolios());
     }

@@ -1,6 +1,6 @@
 package ru.youngstanis.models.enums;
 
-public enum OperationType {
+public enum TransactionType {
     BUY,
     SELL,
     MOVE

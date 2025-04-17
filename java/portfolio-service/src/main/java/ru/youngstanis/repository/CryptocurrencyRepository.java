@@ -12,13 +12,11 @@ import java.util.UUID;
 @Repository
 public interface CryptocurrencyRepository extends JpaRepository<Cryptocurrency, Long> {
 
-    @Query(
-            value = "SELECT psc.*" +
-                    "FROM portfolio_service_cryptocurrencies psc " +
-                    "JOIN portfolio_service_portfolio psp " +
-                    "ON psc.portfolio_id = psp.id " +
-                    "WHERE psp.user_id = :userId",
-            nativeQuery = true
+    @Query(value = "SELECT psc.*" +
+            "FROM portfolio_service_cryptocurrencies psc " +
+            "JOIN portfolio_service_portfolio psp " +
+            "ON psc.portfolio_id = psp.id " +
+            "WHERE psp.user_id = :userId", nativeQuery = true
     )
     List<Cryptocurrency> getAllByUserId(@Param("userId") UUID userId);
 }

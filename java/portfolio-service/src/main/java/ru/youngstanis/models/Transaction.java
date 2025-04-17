@@ -2,21 +2,18 @@ package ru.youngstanis.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import ru.youngstanis.constants.TableNames;
-import ru.youngstanis.models.enums.OperationType;
+import ru.youngstanis.models.enums.TransactionType;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(setterPrefix = "with")
 @Table(name = TableNames.TRANSACTIONS)
 public class Transaction {
 
@@ -25,24 +22,24 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "coin_name")
-    private String tokenName;
+    @Column(name = "cryptocurrency_name")
+    private String cryptocurrencyName;
 
-    @Column(name = "amount")
-    private Double amount;
+    @Column(name = "cryptocurrency_amount")
+    private Double cryptocurrencyAmount;
 
-    @Column(name = "coin_price")
-    private Double coinPrice;
+    @Column(name = "cryptocurrency_price")
+    private Double cryptocurrencyPrice;
 
-    @Column(name = "operation_type")
-    private OperationType operationType;
+    @Column(name = "transaction_type")
+    private TransactionType transactionType;
 
-    @Column(name = "creation_time")
-    private Instant creation_time;
+    @Column(name = "transaction_created_at")
+    private Instant transactionCreatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "portfolio_id", nullable = false)
+    @JoinColumn(name = "cryptocurrency_id", nullable = false)
     @JsonBackReference
-    private Portfolio portfolio;
+    private Cryptocurrency cryptocurrency;
 }
 

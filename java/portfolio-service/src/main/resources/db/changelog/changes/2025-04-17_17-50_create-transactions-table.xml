@@ -13,19 +13,19 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="token_name" type="text"/>
-            <column name="amount" type="double"/>
-            <column name="coinPrice" type="double"/>
-            <column name="operationType" type="text"/>
-            <column name="created_at" type="timestamptz"/>
-            <column name="portfolio_id" type="bigint">
+            <column name="cryptocurrency_name" type="text"/>
+            <column name="cryptocurrency_amount" type="double"/>
+            <column name="cryptocurrency_price" type="double"/>
+            <column name="transaction_type" type="text"/>
+            <column name="transaction_created_at" type="timestamptz"/>
+            <column name="cryptocurrency_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="portfolio_service_transactions" baseColumnNames="portfolio_id"
-                                 constraintName="portfolio_service_transactions_portfolio_id_fk"
-                                 referencedTableName="portfolio_service_portfolio"
+        <addForeignKeyConstraint baseTableName="portfolio_service_transactions" baseColumnNames="cryptocurrency_id"
+                                 constraintName="portfolio_service_transactions_cryptocurrency_id_fk"
+                                 referencedTableName="portfolio_service_cryptocurrencies"
                                  referencedColumnNames="id"/>
 
     </changeSet>

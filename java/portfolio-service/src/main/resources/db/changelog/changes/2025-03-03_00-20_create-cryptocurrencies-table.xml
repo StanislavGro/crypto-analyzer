@@ -16,8 +16,8 @@
             <column name="full_name" type="text"/>
             <column name="short_name" type="text"/>
             <column name="amount" type="double"/>
-            <column name="added_at_utc" type="bigint"/>
-            <column name="buy_price_dollar" type="double"/>
+            <column name="added_at" type="bigint"/>
+            <column name="buy_price" type="double"/>
             <column name="portfolio_id" type="bigint">
                 <constraints nullable="false"/>
             </column>

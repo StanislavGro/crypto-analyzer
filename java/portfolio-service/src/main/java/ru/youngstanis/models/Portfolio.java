@@ -31,8 +31,4 @@ public class Portfolio {
     @OneToMany(mappedBy = "portfolio")
     @JsonBackReference
     private List<Cryptocurrency> cryptocurrencies;
-
-    @OneToMany(mappedBy = "portfolio")
-    @JsonBackReference
-    private List<Transaction> transactions;
 }
