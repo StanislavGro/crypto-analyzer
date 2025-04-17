@@ -14,7 +14,7 @@ public interface CryptocurrencyRepository extends JpaRepository<Cryptocurrency, 
 
     @Query(
             value = "SELECT psc.*" +
-                    "FROM portfolio_service_cryptocurrency psc " +
+                    "FROM portfolio_service_cryptocurrencies psc " +
                     "JOIN portfolio_service_portfolio psp " +
                     "ON psc.portfolio_id = psp.id " +
                     "WHERE psp.user_id = :userId",
