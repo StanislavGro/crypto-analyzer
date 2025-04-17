@@ -19,14 +19,26 @@ public class CryptocurrencyController {
         this.cryptocurrencyService = cryptocurrencyService;
     }
 
-    @GetMapping("/get-user-coins/{userId}")
-    public ResponseEntity<List<Cryptocurrency>> getAllCryptocurrency(@PathVariable UUID userId) {
+    @GetMapping("/get-user-cryptocurrencies/{userId}")
+    public ResponseEntity<List<Cryptocurrency>> getUserCryptocurrencies(@PathVariable UUID userId) {
         List<Cryptocurrency> cryptocurrencies = cryptocurrencyService.getAllUserCryptocurrency(userId);
         return ResponseEntity.ok(cryptocurrencies);
     }
 
     @PostMapping("/add-сryptocurrency")
     public ResponseEntity<HttpStatus> addCryptocurrency(@RequestBody Cryptocurrency cryptocurrency) {
+        //TODO
+        return ResponseEntity.ok(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/delete-сryptocurrency")
+    public ResponseEntity<?> deleteCryptocurrency() {
+        //TODO
+        return ResponseEntity.ok(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/update-сryptocurrency")
+    public ResponseEntity<?> updateCryptocurrency() {
         //TODO
         return ResponseEntity.ok(HttpStatus.CREATED);
     }

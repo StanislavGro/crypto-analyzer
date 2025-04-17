@@ -25,8 +25,8 @@ public class PortfolioController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-all-portfolios")
-    public ResponseEntity<List<Portfolio>> getAllPortfolios() {
+    @GetMapping("/get-all-portfolio")
+    public ResponseEntity<List<Portfolio>> getAllPortfolio() {
         return ResponseEntity.ok(portfolioService.getAllPortfolios());
     }
 }
