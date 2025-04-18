@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import ru.youngstanis.constants.TableNames;
-import ru.youngstanis.models.enums.TransactionType;
+import ru.youngstanis.enums.TransactionType;
 
 import java.time.Instant;
 
@@ -16,7 +16,6 @@ import java.time.Instant;
 @Builder(setterPrefix = "with")
 @Table(name = TableNames.TRANSACTIONS)
 public class Transaction {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

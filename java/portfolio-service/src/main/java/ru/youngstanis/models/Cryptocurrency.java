@@ -40,11 +40,9 @@ public class Cryptocurrency {
 
     @ManyToOne
     @JoinColumn(name = "portfolio_id", nullable = false)
-    @JsonManagedReference
     private Portfolio portfolio;
 
     @OneToMany(mappedBy = "cryptocurrency")
-    @JsonBackReference
     private List<Transaction> transactions;
 }
 

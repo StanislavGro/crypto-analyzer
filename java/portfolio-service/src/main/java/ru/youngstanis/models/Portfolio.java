@@ -29,6 +29,5 @@ public class Portfolio {
     private UUID userId;
 
     @OneToMany(mappedBy = "portfolio")
-    @JsonBackReference
     private List<Cryptocurrency> cryptocurrencies;
 }

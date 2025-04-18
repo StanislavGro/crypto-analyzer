@@ -1,4 +1,4 @@
-package ru.youngstanis.models.enums;
+package ru.youngstanis.enums;
 
 public enum TransactionType {
     BUY,
