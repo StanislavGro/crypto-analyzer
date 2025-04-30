@@ -11,6 +11,8 @@
 
     <modules>
         <module>portfolio-service</module>
+        <module>crypto-analyzer-lib</module>
+        <module>crypto-analyzer-lib</module>
     </modules>
 
     <parent>
@@ -24,7 +26,7 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <release>17</release>
+                    <release>21</release>
                 </configuration>
             </plugin>
         </plugins>

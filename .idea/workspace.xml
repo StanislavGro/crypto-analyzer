@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Рефаторил код">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/crypto-analyzer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/java/ru/youngstanis/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/portfolio-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;StanislavGro&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/StanislavGro/crypto-analyzer.git&quot;,
+    &quot;accountId&quot;: &quot;69dc2eca-2dc8-418a-8e8b-aaa52a6a0537&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2v4K5TZpknshmWgnOgD9PCZQf4H" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.PortfolioServiceApplication.executor": "Run",
+    "Maven.java [clean].executor": "Run",
+    "Maven.java [compile].executor": "Run",
+    "Maven.java [validate].executor": "Run",
+    "Maven.portfolio-service [clean].executor": "Run",
+    "Maven.portfolio-service [package].executor": "Run",
+    "Maven.portfolio-service [validate].executor": "Run",
+    "Remote JVM Debug.portfolio-service-debugger.executor": "Debug",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.PortfolioServiceApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "feature-portfolio",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.34082398",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test" />
+      <recent name="$PROJECT_DIR$/java/portfolio-service/src/test" />
+      <recent name="$PROJECT_DIR$/java/portfolio-service/src/main/resources/db/changelog/changes/data" />
+      <recent name="$PROJECT_DIR$/docker" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java" />
+      <recent name="$PROJECT_DIR$/java/portfolio-service/src/main/resources/db/changelog/changes" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.youngstanis" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.youngstanis.Main" />
+      <module name="crypto-analyzer.java.crypto-analyzer-lib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.youngstanis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.youngstanis.PortfolioServiceApplication" />
+      <module name="crypto-analyzer.java.portfolio-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.youngstanis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="portfolio-service-debugger" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="150.241.100.101" />
+      <option name="PORT" value="9000" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9000" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="PortfolioServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="crypto-analyzer.java.portfolio-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.youngstanis.PortfolioServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.PortfolioServiceApplication" />
+      <item itemvalue="Remote JVM Debug.portfolio-service-debugger" />
+      <item itemvalue="Spring Boot.PortfolioServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.PortfolioServiceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="" />
+      <created>1743398723047</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743398723047</updated>
+      <workItem from="1743398724146" duration="1153000" />
+      <workItem from="1743401740274" duration="15602000" />
+      <workItem from="1743479788974" duration="1449000" />
+      <workItem from="1743658110714" duration="4000" />
+      <workItem from="1743658527992" duration="619000" />
+      <workItem from="1744879623739" duration="756000" />
+      <workItem from="1744880392043" duration="11427000" />
+      <workItem from="1744952275982" duration="88000" />
+      <workItem from="1744967104256" duration="17000" />
+      <workItem from="1744979755792" duration="6000" />
+      <workItem from="1744983043699" duration="1108000" />
+      <workItem from="1744984310037" duration="728000" />
+      <workItem from="1745838311620" duration="1519000" />
+      <workItem from="1745841505335" duration="9000" />
+      <workItem from="1746003277554" duration="1074000" />
+      <workItem from="1746004361705" duration="487000" />
+      <workItem from="1746004858146" duration="130000" />
+      <workItem from="1746004998436" duration="565000" />
+      <workItem from="1746005571872" duration="812000" />
+      <workItem from="1746006394081" duration="588000" />
+      <workItem from="1746006988627" duration="6000" />
+      <workItem from="1746007003461" duration="131000" />
+      <workItem from="1746007142866" duration="102000" />
+      <workItem from="1746007251115" duration="105000" />
+    </task>
+    <task id="LOCAL-00001" summary="Настроил project structure">
+      <option name="closed" value="true" />
+      <created>1743401912555</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743401912555</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743402802299</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743402802299</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743402918154</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743402918154</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743403234976</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743403234976</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743403404980</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743403404980</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404114442</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404114442</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404214106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404214106</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404753945</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404753945</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404839593</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404839593</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404910156</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404910156</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743404987715</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404987715</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743405194688</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743405194688</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743405420217</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743405420217</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743405514079</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743405514079</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743405619957</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743405619957</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743406541017</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743406541017</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743408851464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743408851464</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743409178492</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743409178492</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743409320427</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743409320427</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743409512797</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743409512797</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743409763197</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1743409763197</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743410038308</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1743410038308</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743410641773</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1743410641773</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743411109530</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1743411109530</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743411309175</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1743411309175</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743411413289</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1743411413289</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743412994761</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1743412994761</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743413599628</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1743413599628</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743413843539</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1743413843539</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743414930014</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1743414930014</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743415172731</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1743415172731</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743415280090</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1743415280090</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743415654814</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1743415654814</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743416118888</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1743416118888</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743416192261</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1743416192261</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743416344309</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1743416344309</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743416428094</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1743416428094</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743417190238</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1743417190238</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743417320072</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1743417320072</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Обновляю github ci">
+      <option name="closed" value="true" />
+      <created>1743417778745</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1743417778745</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Удалил ненужный импорт">
+      <option name="closed" value="true" />
+      <created>1744882531716</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1744882531716</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Исправил баг с таблицами">
+      <option name="closed" value="true" />
+      <created>1744883382945</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1744883382945</updated>
+    </task>
+    <task id="LOCAL-00043" summary="добавил новую таблицу с транзакциями">
+      <option name="closed" value="true" />
+      <created>1744887776045</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1744887776045</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Сделал рефакторинг всего кода">
+      <option name="closed" value="true" />
+      <created>1744892451785</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1744892451785</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Добавил новых эндпоинтов">
+      <option name="closed" value="true" />
+      <created>1744892937886</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1744892937886</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Рефаторил код">
+      <option name="closed" value="true" />
+      <created>1744984321674</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1744984321674</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Настроил project structure" />
+    <MESSAGE value="Обновляю github ci" />
+    <MESSAGE value="Удалил ненужный импорт" />
+    <MESSAGE value="Исправил баг с таблицами" />
+    <MESSAGE value="добавил новую таблицу с транзакциями" />
+    <MESSAGE value="Сделал рефакторинг всего кода" />
+    <MESSAGE value="Добавил новых эндпоинтов" />
+    <MESSAGE value="Рефаторил код" />
+    <option name="LAST_COMMIT_MESSAGE" value="Рефаторил код" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/untitled/src/main/java/ru/youngstanis/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

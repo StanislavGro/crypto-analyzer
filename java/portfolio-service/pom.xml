@@ -13,7 +13,7 @@
     <artifactId>portfolio-service</artifactId>
 
     <properties>
-        <image.path> registry.hub.docker.com/stanislavskii/${artifactId}</image.path>
+        <image.path>registry.hub.docker.com/stanislavskii/${artifactId}</image.path>
     </properties>
 
     <dependencies>

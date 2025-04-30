@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/crypto-analyzer.iml" filepath="$PROJECT_DIR$/.idea/crypto-analyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/crypto-analyzer.java.crypto-analyzer-lib.main.iml" filepath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/crypto-analyzer.java.crypto-analyzer-lib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" filepath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" filepath="$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" filepath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" />
+    </modules>
+  </component>
+</project>

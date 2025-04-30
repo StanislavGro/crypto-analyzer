@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crypto-analyzer.java.portfolio-service" />
+        <module name="crypto-analyzer.java.crypto-analyzer-lib" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crypto-analyzer.portfolio-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="crypto-analyzer.java" options="-parameters" />
+      <module name="crypto-analyzer.java.crypto-analyzer-lib" options="-parameters" />
+      <module name="crypto-analyzer.java.portfolio-service" options="-parameters" />
+      <module name="crypto-analyzer.portfolio-service" options="-parameters" />
+    </option>
+  </component>
+</project>
