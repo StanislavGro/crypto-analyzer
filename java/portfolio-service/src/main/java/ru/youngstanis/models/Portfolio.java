@@ -1,14 +1,12 @@
 package ru.youngstanis.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
 import java.util.UUID;
 
-import static ru.youngstanis.constants.TableNames.*;
+import static ru.youngstanis.constants.TableNames.PORTFOLIO;
 
 @Entity
 @Setter

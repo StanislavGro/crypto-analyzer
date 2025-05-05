@@ -4,32 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Рефаторил код">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/crypto-analyzer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/crypto-analyzer.Mii1pA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4f9f67cf-bc7a-4865-8da4-e502604c776f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/java/ru/youngstanis/MainTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" afterDir="false" />
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Добавил новую либу crypto-analyzer-lib">
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/MarketDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/impl/CoinMarketCapProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/models/CoinPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/models/MarketSummary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/crypto-analyzer.java.crypto-analyzer-lib.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/portfolio-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/models/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/models/Portfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -68,47 +56,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.PortfolioServiceApplication.executor": "Run",
-    "Maven.java [clean].executor": "Run",
-    "Maven.java [compile].executor": "Run",
-    "Maven.java [validate].executor": "Run",
-    "Maven.portfolio-service [clean].executor": "Run",
-    "Maven.portfolio-service [package].executor": "Run",
-    "Maven.portfolio-service [validate].executor": "Run",
-    "Remote JVM Debug.portfolio-service-debugger.executor": "Debug",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.PortfolioServiceApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature-portfolio",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.34082398",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PortfolioServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Remote JVM Debug.portfolio-service-debugger.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PortfolioServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-lib&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34082398&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test" />
@@ -141,19 +131,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PortfolioServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.youngstanis.PortfolioServiceApplication" />
-      <module name="crypto-analyzer.java.portfolio-service.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.youngstanis.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="portfolio-service-debugger" type="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -176,14 +153,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.PortfolioServiceApplication" />
       <item itemvalue="Remote JVM Debug.portfolio-service-debugger" />
       <item itemvalue="Spring Boot.PortfolioServiceApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.PortfolioServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +202,11 @@
       <workItem from="1746007003461" duration="131000" />
       <workItem from="1746007142866" duration="102000" />
       <workItem from="1746007251115" duration="105000" />
+      <workItem from="1746007363664" duration="252000" />
+      <workItem from="1746417602183" duration="7000" />
+      <workItem from="1746440326219" duration="363000" />
+      <workItem from="1746440698070" duration="2087000" />
+      <workItem from="1746442795238" duration="391000" />
     </task>
     <task id="LOCAL-00001" summary="Настроил project structure">
       <option name="closed" value="true" />
@@ -596,7 +576,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744984321674</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Добавил новую либу crypto-analyzer-lib">
+      <option name="closed" value="true" />
+      <created>1746007510557</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1746007510557</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +610,8 @@
     <MESSAGE value="Сделал рефакторинг всего кода" />
     <MESSAGE value="Добавил новых эндпоинтов" />
     <MESSAGE value="Рефаторил код" />
-    <option name="LAST_COMMIT_MESSAGE" value="Рефаторил код" />
+    <MESSAGE value="Добавил новую либу crypto-analyzer-lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил новую либу crypto-analyzer-lib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,11 +620,6 @@
           <url>file://$PROJECT_DIR$/untitled/src/main/java/ru/youngstanis/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
