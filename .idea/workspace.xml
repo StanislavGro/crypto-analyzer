@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Добавил новую либу crypto-analyzer-lib">
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/MarketDataProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/impl/CoinMarketCapProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/models/CoinPrice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/models/MarketSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Накидал небольшую базочку для всей этой темы">
+      <change afterPath="$PROJECT_DIR$/deploy/docker/docker-compose.remote.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy/manager.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/crypto-analyzer.java.crypto-analyzer-lib.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test/crypto-analyzer.java.crypto-analyzer-lib.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/portfolio-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/main/crypto-analyzer.java.portfolio-service.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/models/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/models/Portfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/src/test/crypto-analyzer.java.portfolio-service.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/.env" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker/docker-compose.local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfiles/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker/dockerfiles/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/impl/CoinMarketCapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/api/impl/CoinMarketCapProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +101,7 @@
       <recent name="$PROJECT_DIR$/docker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deploy" />
       <recent name="$PROJECT_DIR$/java" />
       <recent name="$PROJECT_DIR$/java/portfolio-service/src/main/resources/db/changelog/changes" />
     </key>
@@ -206,7 +201,10 @@
       <workItem from="1746417602183" duration="7000" />
       <workItem from="1746440326219" duration="363000" />
       <workItem from="1746440698070" duration="2087000" />
-      <workItem from="1746442795238" duration="391000" />
+      <workItem from="1746442795238" duration="780000" />
+      <workItem from="1746512652677" duration="760000" />
+      <workItem from="1747916158287" duration="1009000" />
+      <workItem from="1747917174140" duration="942000" />
     </task>
     <task id="LOCAL-00001" summary="Настроил project structure">
       <option name="closed" value="true" />
@@ -584,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746007510557</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Накидал небольшую базочку для всей этой темы">
+      <option name="closed" value="true" />
+      <created>1746443559683</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1746443559683</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +617,8 @@
     <MESSAGE value="Добавил новых эндпоинтов" />
     <MESSAGE value="Рефаторил код" />
     <MESSAGE value="Добавил новую либу crypto-analyzer-lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил новую либу crypto-analyzer-lib" />
+    <MESSAGE value="Накидал небольшую базочку для всей этой темы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Накидал небольшую базочку для всей этой темы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

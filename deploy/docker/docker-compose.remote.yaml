@@ -4,9 +4,9 @@ services:
 
   portfolio-service:
     container_name: portfolio-service
-#    image: "registry.hub.docker.com/stanislavskii/portfolio-service:${TAG}"
+    #    image: "registry.hub.docker.com/stanislavskii/portfolio-service:${TAG}"
     image: crypto-analyzer  # Берем локальный образ, а не из registry
-    build: dockerfiles/.
+    build: dockerfiles
     restart: always
     expose:
       - "${PORTFOLIO_SERVICE_INTERNAL_PORT}"
