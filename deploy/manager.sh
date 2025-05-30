@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PROJECT_NAME="Crypto Analyzer"
+PROJECT_NAME_DIR="crypto-analyzer"
 
 CURR_DIRECTORY="$PWD"
 COMPOSE_DIRECTORY="docker"
@@ -44,6 +45,53 @@ function load_env() {
 function deploy_local() {
     echo "[INFO] Deploying '$PROJECT_NAME' in local machine"
     docker-compose $BASE_DOCKER_COMPOSE_CONFIG up -d
+    echo "[OK] Project successfully deployed local!"
+}
+
+# Deploying docker by ssh
+function ssh_docker_deploy() {
+    echo "[INFO] Trying to connect to '$USERNAME@$IP_ADDRES'..."
+
+    ssh "$USERNAME@$IP_ADDRES" << 'EOF'
+    mkdir -p crypto-analyzer
+EOF
+
+    if [ $? -eq 0 ]; then
+        echo "[INFO] Successfully created 'crypto-analyzer' directory on '$IP_ADDRES'!"
+    else
+        echo "[ERROR] Failed to create 'crypto-analyzer' on '$IP_ADDRES'"
+        exit 1
+    fi
+
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$LOCAL_COMPOSE"
+
+    if [ $? -eq 0 ]; then
+        echo "[INFO] File '$LOCAL_COMPOSE' successfully uploaded on '$IP_ADDRES'!"
+    else
+        echo "[ERROR] Failed to upload '$LOCAL_COMPOSE' on server by scp"
+        exit 1
+    fi
+
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/.env" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/.env"
+
+    if [ $? -eq 0 ]; then
+        echo "[INFO] File '.env' successfully uploaded on '$IP_ADDRES'!"
+    else
+        echo "[ERROR] Failed to upload '.env' on server by scp"
+        exit 1
+    fi
+
+    ssh "$USERNAME@$IP_ADDRES" << 'EOF'
+        cd crypto-analyzer
+        docker-compose -f docker-compose.local.yaml up -d
+EOF
+
+    if [ $? -eq 0 ]; then
+        echo "[INFO] Project '$PROJECT_NAME' successfully deployed on '$IP_ADDRES'!"
+    else
+        echo "[ERROR] Failed to deploy '$PROJECT_NAME' by ssh"
+        exit 1
+    fi
 }
 
 # Deploying project in remote machine by .env
@@ -51,27 +99,7 @@ function deploy_remote() {
     echo "[INFO] Deploying '$PROJECT_NAME' in remote machine"
     load_env
     ssh_docker_deploy
-}
-
-# Deploying docker by ssh
-function ssh_docker_deploy() {
-    echo "[INFO] Trying to connect to '$USERNAME@$IP_ADDRES'..."
-
-
-
-#   Подкачать все файлы на сервер, проверить что они там есть
-#     запустить команду по разворачиванию проекта
-    ssh "$USERNAME@$IP_ADDRES" << 'EOF'
-        echo "На удалённом сервере: $(hostname)"
-
-EOF
-
-    if [ $? -eq 0 ]; then
-        echo "[INFO] Project '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRES'!"
-    else
-        echo "[INFO] Failed to deploy '$PROJECT_NAME' by ssh"
-        exit 1
-    fi
+    echo "[OK] Project successfully deployed remote!"
 }
 
 # Installing docker
@@ -135,10 +163,16 @@ function install_docker_compose() {
 
 # Pulling dependencies necessary for project
 function pull_dependencies() {
+    if [ "$EUID" -ne 0 ]; then
+        echo "[ERROR] Failed to pull dependencies, please run with root (sudo) privileges"
+        exit 1
+    fi
+
     install_docker
     install_docker_compose
 
     usermod -aG docker $SUDO_USER
+    echo "[OK] All dependencies successfully installed!"
 }
 
 function stop() {
@@ -164,39 +198,31 @@ function clean() {
     else
         echo "[OK] '$PROJECT_NAME' project is fully cleaned"
     fi
+    echo "[OK] Project successfully cleaned!"
 }
 
 case "$1" in
     --clean)
         clean
-        echo "[OK] Project successfully cleaned!"
         ;;
     --pull-dependensies | --pull | -p)
-        if [ "$EUID" -ne 0 ]; then
-            echo "[ERROR] Failed to pull dependencies, please run with root (sudo) privileges"
-            exit 1
-        fi
         pull_dependencies
-        echo "[OK] All dependencies successfully installed!"
         ;;
     --deploy-local | --local | -l)
         deploy_local
-        echo "[OK] Project successfully deployed local!"
         ;;
     --deploy-remote | --remote | -r)
         deploy_remote
-        is_local=falsew
-        echo "[OK] Project successfully deployed remote!"
+        is_local=false
         ;;
     --stop)
         stop
-        echo "[OK] Project successfully stopped!"
         ;;
 #   Добавить следующие функциональности:
-#       обновление библиотек или подкачка докера (локально и удаленно)
-#       остановка контейнеров (локально и удаленно)
-#       удаление контейнеров (локально и удаленно)
-#       полная очистка от проекта (локально и удаленно)
+#       удаленное разворачивание проекта
+#       обновление библиотек или подкачка докера (удаленно)
+#       остановка контейнеров (удаленно)
+#       полная очистка от проекта (удаленно)
     --help | -h)
 #       Добавить вывод всех доступных команд для пользователя
         exit 1
