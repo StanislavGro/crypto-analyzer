@@ -4,7 +4,7 @@ services:
 
   portfolio-service:
     container_name: portfolio-service
-    image: "registry.hub.docker.com/stanislavskii/portfolio-service:${TAG}"
+    image: "stanislavskii/portfolio-service:${TAG}"
     restart: always
     depends_on:
       - postgres-db

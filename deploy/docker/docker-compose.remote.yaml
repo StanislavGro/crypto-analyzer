@@ -3,31 +3,6 @@ version: '3'
 services:
 
   portfolio-service:
-    container_name: portfolio-service
-    #    image: "registry.hub.docker.com/stanislavskii/portfolio-service:${TAG}"
     image: crypto-analyzer  # Берем локальный образ, а не из registry
     build: dockerfiles
-    restart: always
-    expose:
-      - "${PORTFOLIO_SERVICE_INTERNAL_PORT}"
-    depends_on:
-      - postgres-db
-    environment:
-      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:${POSTGRES_INTERNAL_PORT}/crypto-analyzer"
-      - "SPRING_DATASOURCE_USERNAME=crypto"
-      - "SPRING_DATASOURCE_PASSWORD=crypto"
-      - "SPRING_JPA_HIBERNATE_DDL_AUTO=none"
-    ports:
-      - "${PORTFOLIO_SERVICE_EXTERNAL_PORT}:${PORTFOLIO_SERVICE_INTERNAL_PORT}"
 
-  postgres-db:
-    container_name: postgres
-    image: postgres:14
-    restart: always
-    shm_size: 128mb
-    environment:
-      POSTGRES_DB: "${POSTGRES_DB}"
-      POSTGRES_USER: "${POSTGRES_USER}"
-      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-    ports:
-      - "${POSTGRES_EXTERNAL_PORT}:${POSTGRES_INTERNAL_PORT}"
