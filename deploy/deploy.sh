@@ -117,60 +117,50 @@ function deploy_local() {
     log "[OK] Project successfully deployed locally!"
 }
 
-# Deploying docker by ssh
-function ssh_docker_deploy() {
-    echo "[INFO] Trying to connect to '$USERNAME@$IP_ADDRES'..."
+# Checking SHH connection
+function check_ssh() {
+    ssh -o ConnectTimeout=10 "$USERNAME@$IP_ADDRES" "echo 'SSH connection successful'" || {
+        log "[ERROR] Failed to connect to '$USERNAME@$IP_ADDRES' by SSH"
+        exit 1;
+    }
+}
 
-    ssh "$USERNAME@$IP_ADDRES" << 'EOF'
-    mkdir -p crypto-analyzer
-EOF
-
-    if [ $? -eq 0 ]; then
-        echo "[INFO] Successfully created 'crypto-analyzer' directory on '$IP_ADDRES'!"
-    else
-        echo "[ERROR] Failed to create 'crypto-analyzer' on '$IP_ADDRES'"
+# Uploading files via ssh and scp
+upload_files() {
+    log "[INFO] Uploading files to '$USERNAME@$IP_ADDRES'"
+    ssh "$USERNAME@$IP_ADDRES" "mkdir -p $PROJECT_NAME_DIR" || {
+        log "[ERROR] Failed to create directory '$PROJECT_NAME_DIR'"
         exit 1
-    fi
-
-    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$LOCAL_COMPOSE"
-
-    if [ $? -eq 0 ]; then
-        echo "[INFO] File '$LOCAL_COMPOSE' successfully uploaded on '$IP_ADDRES'!"
-    else
-        echo "[ERROR] Failed to upload '$LOCAL_COMPOSE' on server by scp"
+    }
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$REMOTE_COMPOSE" || {
+        log "[ERROR] Failed to upload '$LOCAL_COMPOSE'"
         exit 1
-    fi
-
-    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/.env" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/.env"
-
-    if [ $? -eq 0 ]; then
-        echo "[INFO] File '.env' successfully uploaded on '$IP_ADDRES'!"
-    else
-        echo "[ERROR] Failed to upload '.env' on server by scp"
+    }
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/.env" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/.env" || {
+        log "[ERROR] Failed to upload .env"
         exit 1
-    fi
-
-    ssh "$USERNAME@$IP_ADDRES" << 'EOF'
-        cd crypto-analyzer
-        docker-compose -f docker-compose.local.yaml up -d
-EOF
-
-    if [ $? -eq 0 ]; then
-        echo "[INFO] Project '$PROJECT_NAME' successfully deployed on '$IP_ADDRES'!"
-    else
-        echo "[ERROR] Failed to deploy '$PROJECT_NAME' by ssh"
-        exit 1
-    fi
+    }
+    log "[INFO] Files uploaded successfully"
 }
 
 # Deploying project in remote machine by .env
 function deploy_remote() {
-    echo "[INFO] Deploying '$PROJECT_NAME' in remote machine"
+    echo "[INFO] Deploying '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
     load_env
-    ssh_docker_deploy
-    echo "[OK] Project successfully deployed remote!"
+    check_ssh
+    upload_files
+    ssh "$USERNAME@$IP_ADDRES" << EOF
+        cd $PROJECT_NAME_DIR
+        docker-compose -f $REMOTE_COMPOSE up -d || exit 1
+        docker-compose -f $REMOTE_COMPOSE ps
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to deploy project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1; }
+    echo "[OK] '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRES'!"
 }
 
+# remote_clean
+# remote_stop
+# remote_pull
 
 function stop() {
     log "[INFO] Stopping '$PROJECT_NAME' locally"
