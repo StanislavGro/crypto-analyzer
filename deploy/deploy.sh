@@ -158,9 +158,17 @@ EOF
     echo "[OK] '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRES'!"
 }
 
-# remote_clean
-# remote_stop
-# remote_pull
+function remote_clean() {
+    exit 0
+}
+
+function remote_stop() {
+    exit 0
+}
+
+function remote_pull() {
+    exit 0
+}
 
 function stop() {
     log "[INFO] Stopping '$PROJECT_NAME' locally"
