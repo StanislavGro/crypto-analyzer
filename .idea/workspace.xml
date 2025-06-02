@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="С докером стал разбираться">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Сделал скрипт manager.sh на 80%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/docker/docker-compose.local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker/docker-compose.local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/docker/docker-compose.remote.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker/docker-compose.remote.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/manager.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/manager.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/docker/docker-compose.remote.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/docker/dockerfiles/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/manager.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/deploy.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,23 +206,8 @@
       <workItem from="1747978855352" duration="698000" />
       <workItem from="1748337372622" duration="6202000" />
       <workItem from="1748408246371" duration="9000" />
-      <workItem from="1748599851819" duration="5115000" />
-    </task>
-    <task id="LOCAL-00001" summary="Настроил project structure">
-      <option name="closed" value="true" />
-      <created>1743401912555</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1743401912555</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743402802299</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1743402802299</updated>
+      <workItem from="1748599851819" duration="10733000" />
+      <workItem from="1748753753243" duration="11114000" />
     </task>
     <task id="LOCAL-00003" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -601,7 +585,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747918337624</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Половину скрипта запуска проекта добавил">
+      <option name="closed" value="true" />
+      <created>1748606496836</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1748606496836</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Сделал скрипт manager.sh на 80%">
+      <option name="closed" value="true" />
+      <created>1748612449314</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1748612449314</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +630,9 @@
     <MESSAGE value="Добавил новую либу crypto-analyzer-lib" />
     <MESSAGE value="Накидал небольшую базочку для всей этой темы" />
     <MESSAGE value="С докером стал разбираться" />
-    <option name="LAST_COMMIT_MESSAGE" value="С докером стал разбираться" />
+    <MESSAGE value="Половину скрипта запуска проекта добавил" />
+    <MESSAGE value="Сделал скрипт manager.sh на 80%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал скрипт manager.sh на 80%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
