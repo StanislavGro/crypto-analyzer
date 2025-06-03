@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Сделал скрипт manager.sh на 92%">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Сделал скрипт manager.sh на 93%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/deploy.sh" afterDir="false" />
     </list>
@@ -205,15 +205,8 @@
       <workItem from="1748337372622" duration="6202000" />
       <workItem from="1748408246371" duration="9000" />
       <workItem from="1748599851819" duration="10733000" />
-      <workItem from="1748753753243" duration="13343000" />
-    </task>
-    <task id="LOCAL-00005" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743403404980</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1743403404980</updated>
+      <workItem from="1748753753243" duration="13475000" />
+      <workItem from="1748922413775" duration="8422000" />
     </task>
     <task id="LOCAL-00006" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -599,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748878998132</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Сделал скрипт manager.sh на 93%">
+      <option name="closed" value="true" />
+      <created>1748879123389</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1748879123389</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +633,8 @@
     <MESSAGE value="Сделал скрипт manager.sh на 80%" />
     <MESSAGE value="Сделал скрипт manager.sh на 90%" />
     <MESSAGE value="Сделал скрипт manager.sh на 92%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал скрипт manager.sh на 92%" />
+    <MESSAGE value="Сделал скрипт manager.sh на 93%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал скрипт manager.sh на 93%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

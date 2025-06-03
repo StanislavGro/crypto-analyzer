@@ -62,11 +62,11 @@ function install_docker() {
     log "[INFO] Trying to install docker on $DISTRIBUTION"
     case $DISTRIBUTION in
         ubuntu | debian)
-            apt-get update
-            apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+            apt update
+            apt install -y apt-transport-https ca-certificates curl software-properties-common
 
-            curl -fsSL https://download.docker.com/linux/$DISTRO/gpg | apt-key add -
-            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$DISTRO $(lsb_release -cs) stable"
+            curl -fsSL https://download.docker.com/linux/$DISTRIBUTION/gpg | apt-key add -
+            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$DISTRIBUTION $(lsb_release -cs) stable"
 
             apt-get update
             apt-get install -y docker-ce docker-ce-cli containerd.io
@@ -77,12 +77,12 @@ function install_docker() {
             yum install -y docker-ce docker-ce-cli containerd.io
             ;;
         *)
-          log "[ERROR] Sorry! Distribution $DISTRIBUTION is not supported"
-          exit 1
-          ;;
+            log "[ERROR] Sorry! Distribution $DISTRIBUTION is not supported"
+            exit 1
+            ;;
     esac
     systemctl start docker
-    systemclt enable docker
+    systemctl enable docker
     docker --version || { log "[ERROR] Failed to install Docker"; exit 1; }
     log "[OK] Docker successfully installed on $DISTRIBUTION"
 }
@@ -104,7 +104,7 @@ function pull_dependencies() {
         exit 1
     fi
     install_docker
-    install_docker_compose
+#    install_docker_compose
     usermod -aG docker $SUDO_USER || log "[WARNING] Failed to add user to docker group"
     log "[OK] All dependencies successfully installed!"
 }
@@ -132,7 +132,7 @@ upload_files() {
         log "[ERROR] Failed to create directory '$PROJECT_NAME_DIR'"
         exit 1
     }
-    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$REMOTE_COMPOSE" || {
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$LOCAL_COMPOSE" || {
         log "[ERROR] Failed to upload '$LOCAL_COMPOSE'"
         exit 1
     }
@@ -151,25 +151,121 @@ function deploy_remote() {
     upload_files
     ssh "$USERNAME@$IP_ADDRES" << EOF
         cd $PROJECT_NAME_DIR
-        docker-compose -f $REMOTE_COMPOSE up -d || exit 1
-        docker-compose -f $REMOTE_COMPOSE ps
+        docker-compose -f $LOCAL_COMPOSE up -d || exit 1
+        docker-compose -f $LOCAL_COMPOSE ps
 EOF
     [ $? -eq 0 ] || { log "[ERROR] Failed to deploy project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1; }
     echo "[OK] '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRES'!"
 }
 
+# Cleaning project on remote server
 function remote_clean() {
-    exit 0
+    log "[INFO] Cleaning project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
+    load_env
+    check_ssh
+    upload_files
+    ssh "$USERNAME@$IP_ADDRES" << EOF
+        cd $PROJECT_NAME_DIR
+        docker-compose -f $LOCAL_COMPOSE down -v --remove-orphans || exit 1
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to clean '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1;}
+    log "[OK] '$PROJECT_NAME' successfully cleaned on $USERNAME@$IP_ADDRES"
 }
 
+# Stopping project on remote server
 function remote_stop() {
-    exit 0
+    log "[INFO] Stopping project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
+    load_env
+    check_ssh
+    upload_files
+    ssh "$USERNAME@$IP_ADDRES" << EOF
+        cd $PROJECT_NAME_DIR
+        docker-compose -f $LOCAL_COMPOSE stop || exit 1
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to stop '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1; }
+    log "[OK] Project '$PROJECT_NAME' stopped on $USERNAME@$IP_ADDRES"
 }
 
+# Remote installing docker
+function remote_install_docker() {
+log "[INFO] Checking and installing Docker on '$USERNAME@$IP_ADDRES'"
+    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
+        if ! command -v docker >/dev/null 2>&1; then
+            echo "[WARNING] Docker not found, installing"
+            if [ -f /etc/os-release ]; then
+                . /etc/os-release
+                DISTRO=\$ID
+            else
+                echo "[ERROR] Failed to determine Linux distribution"
+                exit 1
+            fi
+            case \$DISTRO in
+                ubuntu|debian)
+                    sudo apt-get update
+                    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+                    curl -fsSL https://download.docker.com/linux/\$DISTRO/gpg | sudo apt-key add -
+                    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/\$DISTRO \$(lsb_release -cs) stable"
+                    sudo apt-get update
+                    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+                    ;;
+                centos|rhel|fedora)
+                    sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+                    sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+                    sudo yum install -y docker-ce docker-ce-cli containerd.io
+                    ;;
+                *)
+                    echo "[ERROR] Distribution \$DISTRO is not supported"
+                    exit 1
+                    ;;
+            esac
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sudo usermod -aG docker \$USER
+        else
+            echo "[INFO] Docker already installed"
+        fi
+        docker --version || exit 1
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to install Docker remotely"; exit 1; }
+    log "[OK] Docker installed on '$USERNAME@$IP_ADDRES'"
+}
+
+# Remote installing docker compose
+function remote_install_docker_compose() {
+    log "[INFO] Checking and installing Docker Compose on '$USERNAME@$IP_ADDRES'"
+    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
+        if ! command -v docker-compose >/dev/null 2>&1; then
+            echo "[WARNING] Docker Compose not found, installing"
+            COMPOSE_VERSION=\$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+            sudo curl -L "https://github.com/docker/compose/releases/download/\${COMPOSE_VERSION}/docker-compose-\$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+        else
+            echo "[INFO] Docker Compose already installed"
+        fi
+        docker-compose --version || exit 1
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to install Docker Compose remotely"; exit 1; }
+    log "[OK] Docker Compose installed on '$USERNAME@$IP_ADDRES'"
+}
+
+# Remote pull libraries and dependencies
 function remote_pull() {
-    exit 0
+    log "[INFO] Pulling updates on '$USERNAME@$IP_ADDRES'"
+    load_env
+    check_ssh
+    remote_install_docker
+    remote_install_docker_compose
+    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
+      cd $PROJECT_NAME_DIR
+      docker-compose -f $LOCAL_COMPOSE pull || exit 1
+      docker-compose -f $LOCAL_COMPOSE up -d --force-recreate || exit 1
+      docker-compose -f $LOCAL_COMPOSE ps
+EOF
+    [ $? -eq 0 ] || { log "[ERROR] Failed to pull updates on '$USERNAME@$IP_ADDRES'"; exit 1; }
+    log "[OK] Updates pulled and applied on '$USERNAME@$IP_ADDRES'"
 }
 
+# Stopping project
 function stop() {
     log "[INFO] Stopping '$PROJECT_NAME' locally"
     validate_compose_file
@@ -177,6 +273,7 @@ function stop() {
     log "[OK] Project '$PROJECT_NAME' stopped locally"
 }
 
+# Cleaning project
 function clean() {
     log "[INFO] Cleaning '$PROJECT_NAME' locally"
     validate_compose_file
@@ -192,8 +289,8 @@ function show_help() {
     log "   --stop                  Stop project locally"
     log "   --clean                 Clean project locally (remove containers, volumes, orphans)"
     log "   -l, --deploy-local      Deploy project locally"
-    log "   -r, --deploy-remote     Deploy project on remote server"
     log "   --remote-pull           Pull and update project dependencies on remote server"
+    log "   -r, --deploy-remote     Deploy project on remote server"
     log "   --remote-stop           Stop project on remote server"
     log "   --remote-clean          Clean project on remote server"
     log "   -h, --help              Show help message"
@@ -208,6 +305,9 @@ while [ $# -gt 0 ];  do
         -p | --pull)
             pull_dependencies
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         --stop)
             if [ "$is_local" = true ]; then
@@ -216,6 +316,9 @@ while [ $# -gt 0 ];  do
                 remote_stop
             fi
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         --clean)
             if [ "$is_local" = true ]; then
@@ -224,42 +327,61 @@ while [ $# -gt 0 ];  do
                 remote_clean
             fi
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         -l | --deploy-local)
             deploy_local
             is_local=true
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
+            ;;
+        --remote-pull)
+            remote_pull
+            is_local=false
+            shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         -r | --deploy-remote)
             deploy_remote
             is_local=false
             shift
-            ;;
-        --remote-pull)
-            is_local=false
-            remote_pull
-            shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         --remote-stop)
-            is_local=false
             remote_stop
+            is_local=false
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         --remote-clean)
-            is_local=false
             remote_clean
+            is_local=false
             shift
+            if [ $# -eq 0 ]; then
+                exit 0
+            fi
             ;;
         -h | --help)
             show_help
             ;;
         *)
-          log "[ERROR] Unknown parameter '$1'"
-          show_help
-          ;;
+            log "[ERROR] Unknown parameter '$1'"
+            show_help
+            ;;
     esac
 done
 
+# Without args returns error
 if [ $# -eq 0 ]; then
     show_help
 fi
