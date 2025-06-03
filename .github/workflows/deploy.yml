@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Copying files on gitlab-runner server
         env:
@@ -31,7 +33,7 @@ jobs:
         run: |
           ssh -i $SSH_PRIVATE_KEY $USERNAME@$IP_ADDRESS << EOF
             cd /home/crypto-analyzer/docker
-            cat .env << EOF
+            cat > .env << EOF
             TAG=latest
             PORTFOLIO_SERVICE_EXTERNAL_PORT=9000
             PORTFOLIO_SERVICE_INTERNAL_PORT=8080
@@ -45,7 +47,7 @@ jobs:
 
       - name: Starting Docker Compose image
         env:
-          USERNAME: ${{ secrets.USERNAMEE }}
+          USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |

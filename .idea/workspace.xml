@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров после отработки пайплайна">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -207,23 +207,7 @@
       <workItem from="1748599851819" duration="10733000" />
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
-      <workItem from="1748944827894" duration="4140000" />
-    </task>
-    <task id="LOCAL-00008" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743404753945</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1743404753945</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743404839593</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1743404839593</updated>
+      <workItem from="1748944827894" duration="5524000" />
     </task>
     <task id="LOCAL-00010" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -601,7 +585,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748948294941</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Исправляю скрипт по запуску контейнеров после отработки пайплайна 2">
+      <option name="closed" value="true" />
+      <created>1748949209902</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1748949209902</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3">
+      <option name="closed" value="true" />
+      <created>1748949373268</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1748949373269</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +637,9 @@
     <MESSAGE value="Сделал скрипт manager.sh на 93%" />
     <MESSAGE value="Сделал скрипт manager.sh на 99%" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров после отработки пайплайна" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 2" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
