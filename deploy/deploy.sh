@@ -34,8 +34,8 @@ function load_env() {
     log "[INFO] Loading environment variables..."
     if [ -f ".env" ]; then
         export $(grep -v '^#' .env | xargs) > /dev/null 2>&1
-        if [ -z "$IP_ADDRES" ] || [ -z "$USERNAME" ]; then
-            log "[ERROR] Parameters 'IP_ADDRES' and/or 'USERNAME' not found in '.env'"
+        if [ -z "$IP_ADDRESS" ] || [ -z "$USERNAME" ]; then
+            log "[ERROR] Parameters 'IP_ADDRESS' and/or 'USERNAME' not found in '.env'"
             exit 1
         fi
     else
@@ -61,17 +61,15 @@ function validate_compose_file() {
 function install_docker() {
     log "[INFO] Trying to install docker on $DISTRIBUTION"
     case $DISTRIBUTION in
-        ubuntu | debian)
-            apt update
-            apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-            curl -fsSL https://download.docker.com/linux/$DISTRIBUTION/gpg | apt-key add -
-            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$DISTRIBUTION $(lsb_release -cs) stable"
-
+        ubuntu|debian)
             apt-get update
-            apt-get install -y docker-ce docker-ce-cli containerd.io
+            apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+            curl -fsSL https://download.docker.com/linux/$DISTRIBUTION/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/$DISTRIBUTION $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            apt-get update
+            apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
             ;;
-        centos | rhel | fedora)
+        centos|rhel|fedora)
             yum install -y yum-utils device-mapper-persistent-data lvm2
             yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
             yum install -y docker-ce docker-ce-cli containerd.io
@@ -119,24 +117,24 @@ function deploy_local() {
 
 # Checking SHH connection
 function check_ssh() {
-    ssh -o ConnectTimeout=10 "$USERNAME@$IP_ADDRES" "echo 'SSH connection successful'" || {
-        log "[ERROR] Failed to connect to '$USERNAME@$IP_ADDRES' by SSH"
+    ssh -o ConnectTimeout=10 "$USERNAME@$IP_ADDRESS" "echo 'SSH connection successful'" || {
+        log "[ERROR] Failed to connect to '$USERNAME@$IP_ADDRESS' by SSH"
         exit 1;
     }
 }
 
 # Uploading files via ssh and scp
 upload_files() {
-    log "[INFO] Uploading files to '$USERNAME@$IP_ADDRES'"
-    ssh "$USERNAME@$IP_ADDRES" "mkdir -p $PROJECT_NAME_DIR" || {
-        log "[ERROR] Failed to create directory '$PROJECT_NAME_DIR'"
+    log "[INFO] Uploading files to '$USERNAME@$IP_ADDRESS'"
+    ssh "$USERNAME@$IP_ADDRESS" "mkdir -p $PROJECT_NAME_DIR/$COMPOSE_DIRECTORY" || {
+        log "[ERROR] Failed to create directory '$PROJECT_NAME_DIR/$COMPOSE_DIRECTORY'"
         exit 1
     }
-    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/$LOCAL_COMPOSE" || {
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" "$USERNAME@$IP_ADDRESS:$PROJECT_NAME_DIR/$COMPOSE_DIRECTORY/$LOCAL_COMPOSE" || {
         log "[ERROR] Failed to upload '$LOCAL_COMPOSE'"
         exit 1
     }
-    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/.env" "$USERNAME@$IP_ADDRES:$PROJECT_NAME_DIR/.env" || {
+    scp "$CURR_DIRECTORY/$COMPOSE_DIRECTORY/.env" "$USERNAME@$IP_ADDRESS:$PROJECT_NAME_DIR/$COMPOSE_DIRECTORY/.env" || {
         log "[ERROR] Failed to upload .env"
         exit 1
     }
@@ -145,51 +143,51 @@ upload_files() {
 
 # Deploying project in remote machine by .env
 function deploy_remote() {
-    echo "[INFO] Deploying '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
+    echo "[INFO] Deploying '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"
     load_env
     check_ssh
     upload_files
-    ssh "$USERNAME@$IP_ADDRES" << EOF
-        cd $PROJECT_NAME_DIR
+    ssh "$USERNAME@$IP_ADDRESS" << EOF
+        cd $PROJECT_NAME_DIR/$COMPOSE_DIRECTORY
         docker-compose -f $LOCAL_COMPOSE up -d || exit 1
         docker-compose -f $LOCAL_COMPOSE ps
 EOF
-    [ $? -eq 0 ] || { log "[ERROR] Failed to deploy project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1; }
-    echo "[OK] '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRES'!"
+    [ $? -eq 0 ] || { log "[ERROR] Failed to deploy project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"; exit 1; }
+    echo "[OK] '$PROJECT_NAME' successfully deployed on '$USERNAME@$IP_ADDRESS'!"
 }
 
 # Cleaning project on remote server
 function remote_clean() {
-    log "[INFO] Cleaning project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
+    log "[INFO] Cleaning project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"
     load_env
     check_ssh
     upload_files
-    ssh "$USERNAME@$IP_ADDRES" << EOF
-        cd $PROJECT_NAME_DIR
+    ssh "$USERNAME@$IP_ADDRESS" << EOF
+        cd $PROJECT_NAME_DIR/$COMPOSE_DIRECTORY
         docker-compose -f $LOCAL_COMPOSE down -v --remove-orphans || exit 1
 EOF
-    [ $? -eq 0 ] || { log "[ERROR] Failed to clean '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1;}
-    log "[OK] '$PROJECT_NAME' successfully cleaned on $USERNAME@$IP_ADDRES"
+    [ $? -eq 0 ] || { log "[ERROR] Failed to clean '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"; exit 1;}
+    log "[OK] '$PROJECT_NAME' successfully cleaned on $USERNAME@$IP_ADDRESS"
 }
 
 # Stopping project on remote server
 function remote_stop() {
-    log "[INFO] Stopping project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"
+    log "[INFO] Stopping project '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"
     load_env
     check_ssh
     upload_files
-    ssh "$USERNAME@$IP_ADDRES" << EOF
-        cd $PROJECT_NAME_DIR
+    ssh "$USERNAME@$IP_ADDRESS" << EOF
+        cd $PROJECT_NAME_DIR/$COMPOSE_DIRECTORY
         docker-compose -f $LOCAL_COMPOSE stop || exit 1
 EOF
-    [ $? -eq 0 ] || { log "[ERROR] Failed to stop '$PROJECT_NAME' on '$USERNAME@$IP_ADDRES'"; exit 1; }
-    log "[OK] Project '$PROJECT_NAME' stopped on $USERNAME@$IP_ADDRES"
+    [ $? -eq 0 ] || { log "[ERROR] Failed to stop '$PROJECT_NAME' on '$USERNAME@$IP_ADDRESS'"; exit 1; }
+    log "[OK] Project '$PROJECT_NAME' stopped on $USERNAME@$IP_ADDRESS"
 }
 
 # Remote installing docker
 function remote_install_docker() {
-log "[INFO] Checking and installing Docker on '$USERNAME@$IP_ADDRES'"
-    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
+log "[INFO] Checking and installing Docker on '$USERNAME@$IP_ADDRESS'"
+    ssh "$USERNAME@$IP_ADDRESS" << EOF >> "$LOG_FILE" 2>&1
         if ! command -v docker >/dev/null 2>&1; then
             echo "[WARNING] Docker not found, installing"
             if [ -f /etc/os-release ]; then
@@ -227,13 +225,13 @@ log "[INFO] Checking and installing Docker on '$USERNAME@$IP_ADDRES'"
         docker --version || exit 1
 EOF
     [ $? -eq 0 ] || { log "[ERROR] Failed to install Docker remotely"; exit 1; }
-    log "[OK] Docker installed on '$USERNAME@$IP_ADDRES'"
+    log "[OK] Docker installed on '$USERNAME@$IP_ADDRESS'"
 }
 
 # Remote installing docker compose
 function remote_install_docker_compose() {
-    log "[INFO] Checking and installing Docker Compose on '$USERNAME@$IP_ADDRES'"
-    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
+    log "[INFO] Checking and installing Docker Compose on '$USERNAME@$IP_ADDRESS'"
+    ssh "$USERNAME@$IP_ADDRESS" << EOF >> "$LOG_FILE" 2>&1
         if ! command -v docker-compose >/dev/null 2>&1; then
             echo "[WARNING] Docker Compose not found, installing"
             COMPOSE_VERSION=\$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
@@ -245,24 +243,24 @@ function remote_install_docker_compose() {
         docker-compose --version || exit 1
 EOF
     [ $? -eq 0 ] || { log "[ERROR] Failed to install Docker Compose remotely"; exit 1; }
-    log "[OK] Docker Compose installed on '$USERNAME@$IP_ADDRES'"
+    log "[OK] Docker Compose installed on '$USERNAME@$IP_ADDRESS'"
 }
 
 # Remote pull libraries and dependencies
 function remote_pull() {
-    log "[INFO] Pulling updates on '$USERNAME@$IP_ADDRES'"
+    log "[INFO] Pulling updates on '$USERNAME@$IP_ADDRESS'"
     load_env
     check_ssh
     remote_install_docker
     remote_install_docker_compose
-    ssh "$USERNAME@$IP_ADDRES" << EOF >> "$LOG_FILE" 2>&1
-      cd $PROJECT_NAME_DIR
+    ssh "$USERNAME@$IP_ADDRESS" << EOF >> "$LOG_FILE" 2>&1
+      cd $PROJECT_NAME_DIR/$COMPOSE_DIRECTORY
       docker-compose -f $LOCAL_COMPOSE pull || exit 1
       docker-compose -f $LOCAL_COMPOSE up -d --force-recreate || exit 1
       docker-compose -f $LOCAL_COMPOSE ps
 EOF
-    [ $? -eq 0 ] || { log "[ERROR] Failed to pull updates on '$USERNAME@$IP_ADDRES'"; exit 1; }
-    log "[OK] Updates pulled and applied on '$USERNAME@$IP_ADDRES'"
+    [ $? -eq 0 ] || { log "[ERROR] Failed to pull updates on '$USERNAME@$IP_ADDRESS'"; exit 1; }
+    log "[OK] Updates pulled and applied on '$USERNAME@$IP_ADDRESS'"
 }
 
 # Stopping project
