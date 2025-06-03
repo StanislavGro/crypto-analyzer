@@ -15,23 +15,39 @@ jobs:
 
     steps:
 
-      - name: Creating project folder
-        run: mkdir -p ./crypto-analyzer/docker
-
       - name: Copying files on gitlab-runner server
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
-          scp -i private_key -r . $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
+          scp -r . $USERNAME@$IP_ADDRESS:/home
+
+      - name: Creating .evn file
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+        run: |
+          ssh $USERNAME@$IP_ADDRESS << EOF
+            cd /home/crypto-analyzer/docker
+            cat .env << EOF
+            TAG=latest
+            PORTFOLIO_SERVICE_EXTERNAL_PORT=9000
+            PORTFOLIO_SERVICE_INTERNAL_PORT=8080
+            POSTGRES_DB=crypto-analyzer
+            POSTGRES_USER=crypto
+            POSTGRES_PASSWORD=crypto
+            POSTGRES_EXTERNAL_PORT=5435
+            POSTGRES_INTERNAL_PORT=5432
+            EOF
+          EOF
 
       - name: Starting Docker Compose image
         env:
           USERNAME: ${{ secrets.USERNAMEE }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
-          ssh -i private_key $USERNAME@$IP_ADDRESS << EOF
-            cd /crypto-analyzer/docker
+          ssh $USERNAME@$IP_ADDRESS << EOF
+            cd /home/crypto-analyzer/docker
             docker-compose down || true
             docker-compose up --build -d
           EOF
