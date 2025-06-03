@@ -19,15 +19,17 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          scp -r . $USERNAME@$IP_ADDRESS:/home
+          scp -i $SSH_PRIVATE_KEY -r . $USERNAME@$IP_ADDRESS:/home
 
       - name: Creating .evn file
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh $USERNAME@$IP_ADDRESS << EOF
+          ssh -i $SSH_PRIVATE_KEY $USERNAME@$IP_ADDRESS << EOF
             cd /home/crypto-analyzer/docker
             cat .env << EOF
             TAG=latest
@@ -45,8 +47,9 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAMEE }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh $USERNAME@$IP_ADDRESS << EOF
+          ssh -i $SSH_PRIVATE_KEY $USERNAME@$IP_ADDRESS << EOF
             cd /home/crypto-analyzer/docker
             docker-compose down || true
             docker-compose up --build -d
