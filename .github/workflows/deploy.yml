@@ -62,22 +62,21 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
-          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
+          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << EOF
             cd /crypto-analyzer/docker
-            > deploy.log
-            if [ ! -f "docker-compose.local.yaml" ]; then
-              echo "[ERROR] File docker-compose.local.yaml not found" >> deploy.log
-              exit 1
-            fi
-            docker-compose -f "docker-compose.local.yaml" down >> deploy.log 2>&1 || {
-              echo "[ERROR] Failed to stop prev docker compose images" >> deploy.log
-              exit 1
-            }
-            docker-compose -f "docker-compose.local.yaml"  pull >> deploy.log 2>&1 || {
-              echo "[ERROR] Failed to pull actual images fro registry" >> deploy.log
-              exit 1
-            }
-            docker-compose -f "docker-compose.local.yaml" up -d >> deploy.log 2>&1 || {
+#            if [ ! -f "docker-compose.local.yaml" ]; then
+#              echo "[ERROR] File docker-compose.local.yaml not found" >> deploy.log
+#              exit 1
+#            fi
+#            docker-compose -f "docker-compose.local.yaml" down >> deploy.log 2>&1 || {
+#              echo "[ERROR] Failed to stop prev docker compose images" >> deploy.log
+#              exit 1
+#            }
+#            docker-compose -f "docker-compose.local.yaml"  pull >> deploy.log 2>&1 || {
+#              echo "[ERROR] Failed to pull actual images fro registry" >> deploy.log
+#              exit 1
+#            }
+            docker-compose -f docker-compose.local.yaml up -d >> deploy.log 2>&1 || {
               echo "[ERROR] Failed to start Docker Compose" >> deploy.log
               exit 1
             }
