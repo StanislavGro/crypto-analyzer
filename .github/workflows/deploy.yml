@@ -33,7 +33,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
-          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "mkdir -p /crypto-analyzer/docker"
+          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "mkdir -p /crypto-analyzer"
           scp -r ./deploy/docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
 
       - name: Creating .evn file
@@ -42,6 +42,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
+            ls
             cd /crypto-analyzer/docker
             ls
             cat > .env << 'INNER_EOF'
