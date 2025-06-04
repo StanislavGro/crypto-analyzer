@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/deploy.sh" afterDir="false" />
-    </list>
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -211,23 +208,7 @@
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
       <workItem from="1748944827894" duration="6099000" />
-      <workItem from="1749033366063" duration="4865000" />
-    </task>
-    <task id="LOCAL-00026" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743411413289</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1743411413289</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743412994761</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1743412994761</updated>
+      <workItem from="1749033366063" duration="5166000" />
     </task>
     <task id="LOCAL-00028" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -605,7 +586,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749038724487</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
+      <option name="closed" value="true" />
+      <created>1749038843272</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1749038843272</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
+      <option name="closed" value="true" />
+      <created>1749039020016</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1749039020016</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
