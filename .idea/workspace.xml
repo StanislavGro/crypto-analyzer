@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 5)">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 7)">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,23 +207,7 @@
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
       <workItem from="1748944827894" duration="6099000" />
-      <workItem from="1749033366063" duration="3205000" />
-    </task>
-    <task id="LOCAL-00017" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743408851464</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1743408851464</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743409178492</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1743409178492</updated>
+      <workItem from="1749033366063" duration="3518000" />
     </task>
     <task id="LOCAL-00019" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -601,7 +585,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749037063130</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 6)">
+      <option name="closed" value="true" />
+      <created>1749037130691</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1749037130691</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 7)">
+      <option name="closed" value="true" />
+      <created>1749037376126</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1749037376127</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,8 +619,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Удалил ненужный импорт" />
-    <MESSAGE value="Исправил баг с таблицами" />
     <MESSAGE value="добавил новую таблицу с транзакциями" />
     <MESSAGE value="Сделал рефакторинг всего кода" />
     <MESSAGE value="Добавил новых эндпоинтов" />
@@ -644,7 +642,9 @@
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 3)" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 4)" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 5)" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 6)" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 7)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 7)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
