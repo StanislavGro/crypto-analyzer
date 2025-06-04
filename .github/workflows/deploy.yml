@@ -65,6 +65,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
             ls -l  
             cd /crypto-analyzer/docker
+            ls -l  
             if [ ! -f docker-compose.local.yaml ]; then
               echo "[ERROR] File docker-compose.yaml not found" >> deploy.log
               exit 1
