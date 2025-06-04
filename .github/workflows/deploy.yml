@@ -43,8 +43,10 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
             ls
+            echo "|"
             cd /crypto-analyzer/docker
             ls
+            echo "|"
             cat > .env << 'INNER_EOF'
           TAG=latest
 
@@ -58,6 +60,7 @@ jobs:
           POSTGRES_INTERNAL_PORT=5432
           INNER_EOF
             ls
+            echo "|"
           EOF
 
       - name: Starting Docker Compose
