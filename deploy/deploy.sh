@@ -61,6 +61,7 @@ function validate_compose_file() {
 function install_docker() {
     log "[INFO] Trying to install docker on $DISTRIBUTION"
     case $DISTRIBUTION in
+    case $DISTRIBUTION in
         ubuntu|debian)
             apt-get update
             apt-get install -y apt-transport-https ca-certificates curl software-properties-common
