@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 50%">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 2)">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,31 +207,7 @@
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
       <workItem from="1748944827894" duration="6099000" />
-      <workItem from="1749033366063" duration="2190000" />
-    </task>
-    <task id="LOCAL-00011" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743404987715</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1743404987715</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743405194688</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1743405194688</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743405420217</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1743405420217</updated>
+      <workItem from="1749033366063" duration="2518000" />
     </task>
     <task id="LOCAL-00014" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -604,7 +577,31 @@
       <option name="project" value="LOCAL" />
       <updated>1748950848755</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Исправляю скрипт по запуску контейнеров, выполнено на 90%">
+      <option name="closed" value="true" />
+      <created>1749036168337</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1749036168337</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления)">
+      <option name="closed" value="true" />
+      <created>1749036258290</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1749036258290</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 2)">
+      <option name="closed" value="true" />
+      <created>1749036375813</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1749036375814</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +640,10 @@
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 2" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 50%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 50%" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90%" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления)" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 2)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

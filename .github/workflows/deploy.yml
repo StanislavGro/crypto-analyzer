@@ -63,6 +63,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
+            ls -l  
             cd /crypto-analyzer/docker
             if [ ! -f docker-compose.local.yaml ]; then
               echo "[ERROR] File docker-compose.yaml not found" >> deploy.log
@@ -83,7 +84,7 @@ jobs:
             echo "[OK] Docker Compose successfully deployed" >> deploy.log
           EOF
 
-      - name: Copying lof file on server
+      - name: Copying log file on server
         if: always()
         env:
           USERNAME: ${{ secrets.USERNAME }}
