@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 50%">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,49 +47,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main (1).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.PortfolioServiceApplication.executor": "Run",
-    "Maven.java [clean].executor": "Run",
-    "Maven.java [compile].executor": "Run",
-    "Maven.java [validate].executor": "Run",
-    "Maven.portfolio-service [clean].executor": "Run",
-    "Maven.portfolio-service [package].executor": "Run",
-    "Maven.portfolio-service [validate].executor": "Run",
-    "Remote JVM Debug.portfolio-service-debugger.executor": "Debug",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.PortfolioServiceApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "#1 on feature-lib",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.34082398",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PortfolioServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portfolio-service [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Remote JVM Debug.portfolio-service-debugger.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PortfolioServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#1 on feature-lib&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/youngstanis/IdeaProjects/crypto-analyzer/java/crypto-analyzer-lib/src/main/java/ru/youngstanis/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34082398&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/java/crypto-analyzer-lib/src/test" />
@@ -136,7 +138,7 @@
       <method v="2" />
     </configuration>
     <configuration name="PortfolioServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="crypto-analyzer.java.portfolio-service" />
+      <module name="portfolio-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.youngstanis.PortfolioServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,8 +158,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -207,15 +209,8 @@
       <workItem from="1748599851819" duration="10733000" />
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
-      <workItem from="1748944827894" duration="5524000" />
-    </task>
-    <task id="LOCAL-00010" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743404910156</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1743404910156</updated>
+      <workItem from="1748944827894" duration="6099000" />
+      <workItem from="1749033366063" duration="2190000" />
     </task>
     <task id="LOCAL-00011" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -601,7 +596,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748949373269</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Исправляю скрипт по запуску контейнеров, выполнено на 50%">
+      <option name="closed" value="true" />
+      <created>1748950848755</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1748950848755</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +642,8 @@
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 2" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров после отработки пайплайна 3" />
+    <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 50%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 50%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

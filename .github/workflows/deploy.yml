@@ -17,42 +17,77 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Copying files on gitlab-runner server
+      - name: Set up SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.IP_ADDRESS }} >> ~/.ssh/known_hosts
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+
+      - name: Copy files to remote server
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          scp -i $SSH_PRIVATE_KEY -r . $USERNAME@$IP_ADDRESS:/home
+          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "mkdir -p /crypto-analyzer/docker"
+          scp -r ./docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
 
       - name: Creating .evn file
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh -i $SSH_PRIVATE_KEY $USERNAME@$IP_ADDRESS << EOF
-            cd /home/crypto-analyzer/docker
-            cat > .env << EOF
-            TAG=latest
-            PORTFOLIO_SERVICE_EXTERNAL_PORT=9000
-            PORTFOLIO_SERVICE_INTERNAL_PORT=8080
-            POSTGRES_DB=crypto-analyzer
-            POSTGRES_USER=crypto
-            POSTGRES_PASSWORD=crypto
-            POSTGRES_EXTERNAL_PORT=5435
-            POSTGRES_INTERNAL_PORT=5432
-            EOF
+          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
+            cd /crypto-analyzer/docker
+            cat > .env << 'INNER_EOF'
+TAG=latest
+
+PORTFOLIO_SERVICE_EXTERNAL_PORT=9000
+PORTFOLIO_SERVICE_INTERNAL_PORT=8080
+
+POSTGRES_DB=crypto-analyzer
+POSTGRES_USER=crypto
+POSTGRES_PASSWORD=crypto
+POSTGRES_EXTERNAL_PORT=5435
+POSTGRES_INTERNAL_PORT=5432
+INNER_EOF
           EOF
 
-      - name: Starting Docker Compose image
+      - name: Starting Docker Compose
         env:
           USERNAME: ${{ secrets.USERNAME }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh -i $SSH_PRIVATE_KEY $USERNAME@$IP_ADDRESS << EOF
-            cd /home/crypto-analyzer/docker
-            docker-compose down || true
-            docker-compose up --build -d
+          ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
+            cd /crypto-analyzer/docker
+            if [ ! -f docker-compose.local.yaml ]; then
+              echo "[ERROR] File docker-compose.yaml not found" >> deploy.log
+              exit 1
+            fi
+            docker-compose --env-file .env -f docker-compose.local.yaml down >> deploy.log 2>&1 || {
+              echo "[ERROR] Failed to stop prev docker compose images" >> deploy.log
+              exit 1
+            }
+            docker-compose --evn-file .env -f docker-compose.local.yaml  pull >> deploy.log 2>&1 || {
+              echo "[ERROR] Failed to pull actual images fro registry" >> deploy.log
+              exit 1
+            }
+            docker-compose --evn-file .env -f docker-compose.local.yaml up -d >> deploy.log 2>&1 || {
+              echo "[ERROR] Failed to start Docker Compose" >> deploy.log
+              exit 1
+            }
+            echo "[OK] Docker Compose successfully deployed" >> deploy.log
           EOF
+
+      - name: Copying lof file on server
+        if: always()
+          env:
+            USERNAME: ${{ secrets.USERNAME }}
+            IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+          run: |
+            scp $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker/deploy.log ./deploy.log || true
+            cat deploy.log
