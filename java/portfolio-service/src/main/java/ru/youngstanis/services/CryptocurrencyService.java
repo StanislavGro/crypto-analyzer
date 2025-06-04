@@ -1,6 +1,7 @@
 package ru.youngstanis.services;
 
 import org.springframework.stereotype.Service;
+import ru.youngstanis.dto.CryptocurrencyDto;
 import ru.youngstanis.models.Cryptocurrency;
 import ru.youngstanis.repository.CryptocurrencyRepository;
 
@@ -21,7 +22,8 @@ public class CryptocurrencyService {
         this.cryptocurrencyRepository = cryptocurrencyRepository;
     }
 
-    public List<Cryptocurrency> getAllUserCryptocurrency(UUID userId) {
-        return cryptocurrencyRepository.getAllByUserId(userId);
+    public List<CryptocurrencyDto> getAllUserCryptocurrency(UUID userId) {
+//        return cryptocurrencyRepository.getAllByUserId(userId);
+        return null;
     }
 }

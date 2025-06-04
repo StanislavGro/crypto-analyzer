@@ -42,11 +42,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
-            ls
-            echo "|"
             cd /crypto-analyzer/docker
-            ls
-            echo "|"
             cat > .env << 'INNER_EOF'
           TAG=latest
 
@@ -59,8 +55,6 @@ jobs:
           POSTGRES_EXTERNAL_PORT=5435
           POSTGRES_INTERNAL_PORT=5432
           INNER_EOF
-            ls
-            echo "|"
           EOF
 
       - name: Starting Docker Compose
@@ -69,11 +63,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
-            ls
-            echo "|"
             cd /crypto-analyzer/docker
-            ls
-            echo "|"
             if [ ! -f "docker-compose.local.yaml" ]; then
               echo "[ERROR] File docker-compose.local.yaml not found" >> deploy.log
               exit 1
