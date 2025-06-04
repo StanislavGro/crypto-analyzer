@@ -69,9 +69,11 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
-            ls 
+            ls
+            echo "|"
             cd /crypto-analyzer/docker
-            ls 
+            ls
+            echo "|"
             if [ ! -f docker-compose.local.yaml ]; then
               echo "[ERROR] File docker-compose.local.yaml not found" >> deploy.log
               exit 1
