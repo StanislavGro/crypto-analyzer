@@ -34,7 +34,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "mkdir -p /crypto-analyzer/docker"
-          scp -r /deploy/docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
+          scp -r ./deploy/docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
 
       - name: Creating .evn file
         env:
