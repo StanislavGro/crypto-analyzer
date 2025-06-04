@@ -34,7 +34,7 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "mkdir -p /crypto-analyzer/docker"
-          scp -r ./deploy/docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
+          scp -r /deploy/docker $USERNAME@$IP_ADDRESS:/crypto-analyzer/docker
 
       - name: Creating .evn file
         env:
@@ -43,6 +43,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
             cd /crypto-analyzer/docker
+            ls
             cat > .env << 'INNER_EOF'
           TAG=latest
 
@@ -55,6 +56,7 @@ jobs:
           POSTGRES_EXTERNAL_PORT=5435
           POSTGRES_INTERNAL_PORT=5432
           INNER_EOF
+            ls
           EOF
 
       - name: Starting Docker Compose
@@ -63,9 +65,9 @@ jobs:
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run: |
           ssh -o StrictHostKeyChecking=no $USERNAME@$IP_ADDRESS << 'EOF'
-            ls -l  
+            ls 
             cd /crypto-analyzer/docker
-            ls -l  
+            ls 
             if [ ! -f docker-compose.local.yaml ]; then
               echo "[ERROR] File docker-compose.yaml not found" >> deploy.log
               exit 1
