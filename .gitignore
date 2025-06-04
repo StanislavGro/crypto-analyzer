@@ -197,4 +197,5 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/java,kotlin,intellij,maven,gradle
+deploy/.env
+deploy/docker/.env

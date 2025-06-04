@@ -2,21 +2,28 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="crypto-analyzer-lib" />
+        <module name="crypto-analyzer.java.portfolio-service" />
+        <module name="crypto-analyzer.java.crypto-analyzer-lib" />
         <module name="portfolio-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="analyzer-service" target="1.8" />
-      <module name="core" target="1.8" />
+      <module name="crypto-analyzer.portfolio-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="crypto-analyzer-lib" options="-parameters" />
+      <module name="crypto-analyzer.java" options="-parameters" />
+      <module name="crypto-analyzer.java.crypto-analyzer-lib" options="-parameters" />
+      <module name="crypto-analyzer.java.portfolio-service" options="-parameters" />
+      <module name="crypto-analyzer.portfolio-service" options="-parameters" />
+      <module name="java" options="-parameters" />
       <module name="portfolio-service" options="-parameters" />
     </option>
   </component>

@@ -1,3 +1,9 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/versions/2025-03-02_16-00_create-portfolio-table.xml
+      file: db/changelog/changes/2025-03-02_16-00_create-portfolio-table.xml
+  - include:
+      file: db/changelog/changes/2025-03-03_00-20_create-cryptocurrencies-table.xml
+#  - include:
+#      file: db/changelog/changes/2025-03-04_18-insert-test-data-into-portfolio-and-cryptocurrencies.xml
+  - include:
+      file: db/changelog/changes/2025-04-17_17-50_create-transactions-table.xml

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="2025-04-17 17-50" author="youngstanis">
+
+        <createTable schemaName="public"
+                     tableName="portfolio_service_transactions">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="cryptocurrency_name" type="text"/>
+            <column name="cryptocurrency_amount" type="double"/>
+            <column name="cryptocurrency_price" type="double"/>
+            <column name="transaction_type" type="text"/>
+            <column name="transaction_created_at" type="timestamptz"/>
+            <column name="cryptocurrency_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="portfolio_service_transactions" baseColumnNames="cryptocurrency_id"
+                                 constraintName="portfolio_service_transactions_cryptocurrency_id_fk"
+                                 referencedTableName="portfolio_service_cryptocurrencies"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+
+</databaseChangeLog>

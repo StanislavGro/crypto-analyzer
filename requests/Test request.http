@@ -1,0 +1,4 @@
+### GET request to example server
+GET http://150.241.100.101:9000/api/v1/binanceApiTest/getCryptocurrencyPrice?baseCurrency=ETH&quoteCurrency=BTC
+
+###

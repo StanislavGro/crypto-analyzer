@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="2025-03-02 16-00" author="youngstanis">
+
+        <createTable schemaName="public"
+                     tableName="portfolio_service_portfolio">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="portfolio_name" type="text"/>
+            <column name="user_id" type="uuid"/>
+        </createTable>
+
+        <addUniqueConstraint tableName="portfolio_service_portfolio"
+                             columnNames="portfolio_name, user_id"
+                             constraintName="portfolio_service_portfolio_portfolio_name_user_id_unique_constraint"/>
+        
+        <createSequence sequenceName="portfolio_service_portfolio_id_seq"
+                        incrementBy="1"
+                        startValue="10"
+                        dataType="int"
+        />
+
+    </changeSet>
+
+</databaseChangeLog>

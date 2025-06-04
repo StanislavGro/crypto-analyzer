@@ -1,23 +1,31 @@
 package ru.youngstanis.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
-import ru.youngstanis.constants.DatabaseNames;
+
+import java.util.List;
+import java.util.UUID;
+
+import static ru.youngstanis.constants.TableNames.PORTFOLIO;
 
 @Entity
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Table(name = DatabaseNames.PORTFOLIO)
+@Table(name = PORTFOLIO)
 public class Portfolio {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "portfolio_name")
     private String portfolioName;
+
+    @Column(name = "user_id")
+    private UUID userId;
+
+    @OneToMany(mappedBy = "portfolio")
+    private List<Cryptocurrency> cryptocurrencies;
 }

@@ -11,6 +11,8 @@
 
     <modules>
         <module>portfolio-service</module>
+        <module>crypto-analyzer-lib</module>
+        <module>crypto-analyzer-lib</module>
     </modules>
 
     <parent>
@@ -19,4 +21,23 @@
         <version>3.4.2</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,8 +1,9 @@
 package ru.youngstanis.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import ru.youngstanis.dto.PortfolioDto;
 import ru.youngstanis.models.Portfolio;
 import ru.youngstanis.services.PortfolioService;
 
@@ -18,8 +19,14 @@ public class PortfolioController {
         this.portfolioService = portfolioService;
     }
 
-    @GetMapping("/getAllPortfolios")
-    public String getAllPortfolios() {
-        return "[\"Portfolio 1\", \"Portfolio 2\"]";
+    @PostMapping("/create-portfolio")
+    public ResponseEntity<HttpStatus> createPortfolio(@RequestBody PortfolioDto portfolioDto) {
+        portfolioService.createPortfolio(portfolioDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("/get-all-portfolio")
+    public ResponseEntity<List<Portfolio>> getAllPortfolio() {
+        return ResponseEntity.ok(portfolioService.getAllPortfolios());
     }
 }
