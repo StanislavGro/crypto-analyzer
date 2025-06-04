@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 12)">
+    <list default="true" id="202105c2-11d1-488e-a559-cebaf7a27f88" name="Changes" comment="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
       <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/services/CryptocurrencyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/portfolio-service/src/main/java/ru/youngstanis/services/CryptocurrencyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/deploy.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,23 +211,7 @@
       <workItem from="1748753753243" duration="13475000" />
       <workItem from="1748922413775" duration="10325000" />
       <workItem from="1748944827894" duration="6099000" />
-      <workItem from="1749033366063" duration="4551000" />
-    </task>
-    <task id="LOCAL-00024" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743411109530</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1743411109530</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Обновляю github ci">
-      <option name="closed" value="true" />
-      <created>1743411309175</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1743411309175</updated>
+      <workItem from="1749033366063" duration="4865000" />
     </task>
     <task id="LOCAL-00026" summary="Обновляю github ci">
       <option name="closed" value="true" />
@@ -606,7 +589,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749037909754</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
+      <option name="closed" value="true" />
+      <created>1749038578404</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1749038578404</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток">
+      <option name="closed" value="true" />
+      <created>1749038724487</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1749038724487</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Накидал небольшую базочку для всей этой темы" />
     <MESSAGE value="С докером стал разбираться" />
     <MESSAGE value="Половину скрипта запуска проекта добавил" />
     <MESSAGE value="Сделал скрипт manager.sh на 80%" />
@@ -649,7 +647,8 @@
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 10)" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 11)" />
     <MESSAGE value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 12)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправляю скрипт по запуску контейнеров, выполнено на 90% (исправления 12)" />
+    <MESSAGE value="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделал скрипт по непрерывному деплою проекта на сервер при пуше веток" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
