@@ -199,3 +199,4 @@ gradle-app.setting
 
 deploy/.env
 deploy/docker/.env
+.idea
