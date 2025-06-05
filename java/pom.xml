@@ -12,7 +12,6 @@
     <modules>
         <module>portfolio-service</module>
         <module>crypto-analyzer-lib</module>
-        <module>crypto-analyzer-lib</module>
     </modules>
 
     <parent>
@@ -37,6 +36,11 @@
                 <configuration>
                     <release>21</release>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-wrapper-plugin</artifactId>
+                <version>3.3.2</version>
             </plugin>
         </plugins>
     </build>

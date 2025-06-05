@@ -1,0 +1,5 @@
+Command for generating ./mvnw:
+mvn -N wrapper
+
+Deleting from local git cache
+git rm --cahced *-r* <file/-s>

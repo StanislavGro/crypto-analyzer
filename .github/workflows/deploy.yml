@@ -37,6 +37,8 @@ jobs:
 
       - name: Build and push with JIB
         run: |
+          cd java
+          
           services=(${{ env.SERVICES }})
           
           for service in "${services[@]}"; do
