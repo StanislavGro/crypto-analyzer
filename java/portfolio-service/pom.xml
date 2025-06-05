@@ -64,7 +64,7 @@
                 <version>3.4.2</version>
                 <configuration>
                     <to>
-                        <image>${env.DOCKER_REGISTRY}/portfolio-service:latest</image>
+                        <image>${env.DOCKER_REGISTRY}/stanislavskii/portfolio-service:latest</image>
                         <auth>
                             <username>${env.DOCKER_REGISTRY_USER}</username>
                             <password>${env.DOCKER_REGISTRY_PASSWORD}</password>
